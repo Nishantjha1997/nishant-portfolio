@@ -7,18 +7,26 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nishant Jha — Founder's Office, Executive Operations & AI Automation",
+    default: "Nishant Jha - Founder's Office, Executive Operations & AI Automation",
     template: "%s | Nishant Jha",
   },
   description: "Nishant Jha is an Executive in the Founder's Office at CallHippo, building AI-enabled operations, automation, internal tools, and thoughtful digital products.",
   keywords: ["Nishant Jha", "Founder's Office", "Executive Operations", "AI Automation", "Business Operations", "Process Improvement", "Internal Tools"],
   alternates: { canonical: siteUrl },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Nishant Jha — Executive Operations & AI Automation",
+    title: "Nishant Jha - Executive Operations & AI Automation",
     description: "Executive operations, cross-functional delivery, and practical automation systems.",
     siteName: "Nishant Jha",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - Executive operations and AI automation" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nishant Jha - Executive Operations & AI Automation",
+    description: "Executive operations, cross-functional delivery, and practical automation systems.",
+    images: ["/opengraph-image"],
   },
   robots: { index: true, follow: true },
 };

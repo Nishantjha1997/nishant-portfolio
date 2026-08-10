@@ -9,6 +9,7 @@ export type Project = {
   metric: string;
   links?: { label: string; href: string }[];
   details: { label: string; value: string }[];
+  flow?: { label: string; value: string }[];
 };
 
 export const projects: Project[] = [
@@ -27,6 +28,11 @@ export const projects: Project[] = [
       { label: "Focus", value: "Guided creation, preview, export" },
       { label: "Outcome", value: "A faster path from raw experience to a strong first draft" },
     ],
+    flow: [
+      { label: "01", value: "Capture experience and intent" },
+      { label: "02", value: "Guide content with structured prompts" },
+      { label: "03", value: "Edit, preview, and export" },
+    ],
   },
   {
     slug: "streamfree",
@@ -43,6 +49,11 @@ export const projects: Project[] = [
       { label: "Focus", value: "Navigation, playback flows, responsive UI" },
       { label: "Outcome", value: "A polished, installable web experience with a branded domain" },
     ],
+    flow: [
+      { label: "01", value: "Discover a title across Movies, TV, or Anime" },
+      { label: "02", value: "Resolve a responsive player and source choice" },
+      { label: "03", value: "Track history and recover gracefully" },
+    ],
   },
   {
     slug: "gitlab-access-automation",
@@ -57,6 +68,11 @@ export const projects: Project[] = [
       { label: "Role", value: "End-to-end system owner" },
       { label: "Checks", value: "HR, project assignment, identity, permissions" },
       { label: "Impact", value: "Reduced normal eligible-request turnaround from up to 24 hours to a maximum 30-minute processing window" },
+    ],
+    flow: [
+      { label: "01", value: "Structured request intake" },
+      { label: "02", value: "Layered validation and 2FA check" },
+      { label: "03", value: "Provision, escalate, expire, and audit" },
     ],
   },
   {
@@ -74,6 +90,11 @@ export const projects: Project[] = [
       { label: "Focus", value: "Offline durability, secure sync, operations" },
       { label: "Outcome", value: "Portable binaries with checksums, recovery tooling, and update handover" },
     ],
+    flow: [
+      { label: "01", value: "Collect usage locally" },
+      { label: "02", value: "Queue and retry safely offline" },
+      { label: "03", value: "Sync idempotently with dashboard visibility" },
+    ],
   },
   {
     slug: "my-fitness-blueprint",
@@ -89,6 +110,31 @@ export const projects: Project[] = [
       { label: "Role", value: "Product, design, and implementation" },
       { label: "Focus", value: "Goals, routines, tracking, progress" },
       { label: "Outcome", value: "A usable blueprint for consistent personal progress" },
+    ],
+    flow: [
+      { label: "01", value: "Set a goal and baseline" },
+      { label: "02", value: "Plan routines and track workouts" },
+      { label: "03", value: "Review progress and adjust" },
+    ],
+  },
+  {
+    slug: "operations-insights-dashboard",
+    title: "Operations Insights Dashboard",
+    kicker: "Leadership visibility system",
+    summary: "A real-time operating pulse that brings workload, delivery, and risk signals into one leadership view.",
+    description: "This internal reporting system aggregates project activity and workload signals into practical KPIs, helping leadership see capacity constraints and execution risk earlier. The public case study stays intentionally high-level and contains no internal data or company identifiers.",
+    tags: ["Google Apps Script", "Google Sheets", "Reporting", "Decision support"],
+    accent: "teal",
+    metric: "Real-time operating pulse",
+    details: [
+      { label: "Role", value: "System designer and builder" },
+      { label: "Focus", value: "Workload, activity, capacity, risk" },
+      { label: "Outcome", value: "Clearer leadership visibility into priorities and execution" },
+    ],
+    flow: [
+      { label: "01", value: "Aggregate activity and workload signals" },
+      { label: "02", value: "Normalize records into usable KPIs" },
+      { label: "03", value: "Surface constraints and decisions" },
     ],
   },
 ];
