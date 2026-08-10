@@ -21,3 +21,43 @@
 .case-flow-step strong{font-weight:400;line-height:1.45}
 .detail-links{display:flex;flex-wrap:wrap;gap:10px}
 @media(max-width:760px){.impact-strip{grid-template-columns:repeat(2,1fr);width:min(100% - 36px,560px)}.impact-item{padding:18px 14px;min-height:100px}.impact-item strong{font-size:23px}.experience-item{grid-template-columns:1fr;gap:12px}.strengths-grid{grid-template-columns:1fr;gap:42px;margin-top:55px}.case-flow-step{grid-template-columns:38px 1fr}}
+.case-study{border-top:1px solid var(--line);margin:42px 0 34px;padding-top:26px}
+.case-block{border-bottom:1px solid var(--line);padding:24px 0}
+.case-block h2{font-size:18px;letter-spacing:-.03em;margin:0 0 12px}
+.case-block p,.case-block li{color:var(--muted);font-size:13px;line-height:1.7}
+.case-block p{margin:0}
+.case-block ul{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.case-block li{padding-left:18px;position:relative}
+.case-block li:before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.case-disclosure{border:1px solid rgba(238,90,79,.28);background:rgba(238,90,79,.06);color:#c9bfbc;font-size:12px;line-height:1.65;margin:22px 0 0;padding:16px}
+.speech-workspace{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:65px}
+.speech-editor,.speech-settings{background:var(--panel);padding:28px}
+.speech-editor label,.speech-settings>label,.contact-form label{display:grid;gap:10px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.speech-editor textarea,.speech-settings select,.contact-form input,.contact-form textarea{width:100%;border:1px solid var(--line);border-radius:2px;background:var(--bg);color:var(--ink);font:inherit;line-height:1.6;outline:none;padding:13px;transition:border-color .2s ease,box-shadow .2s ease}
+.speech-editor textarea{min-height:260px;resize:vertical;margin-top:12px}
+.speech-editor textarea:focus,.speech-settings select:focus,.contact-form input:focus,.contact-form textarea:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(238,90,79,.12)}
+.speech-settings select{height:48px;margin-top:12px}
+.field-meta{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:10px;margin-top:10px}
+.range-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.range-grid label{display:grid;grid-template-columns:1fr auto;gap:10px;color:var(--muted);font-size:11px}
+.range-grid strong{color:var(--ink);font-weight:400}
+.range-grid input{grid-column:1/-1;width:100%;accent-color:var(--coral)}
+.speech-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:32px}
+.speech-actions .button{border:0;cursor:pointer;min-height:44px}
+.button:disabled{cursor:not-allowed;opacity:.42;transform:none}
+.speech-status{color:var(--muted);font-size:11px;margin:18px 0 0;text-transform:capitalize}
+.form-error{border-left:3px solid var(--coral);color:#f3aaa3;font-size:12px;line-height:1.55;margin:14px 0 0;padding:7px 0 7px 12px}
+.lab-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.lab-notes article{border:1px solid var(--line);background:var(--panel);padding:22px}
+.lab-notes span{color:var(--coral);font-size:10px}
+.lab-notes h2{font-size:17px;margin:28px 0 10px}
+.lab-notes p{color:var(--muted);font-size:12px;line-height:1.65;margin:0}
+.contact-form{display:grid;gap:20px;border-top:1px solid var(--line);margin-top:75px;padding-top:34px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-form input{height:48px}
+.contact-form textarea{resize:vertical}
+.contact-form-foot{display:flex;align-items:center;gap:20px}
+.contact-form-foot .button{border:0;cursor:pointer;min-height:46px}
+.contact-form-foot p{color:var(--muted);font-size:11px;line-height:1.55;margin:0;max-width:360px}
+@media(max-width:900px){.speech-workspace{grid-template-columns:1fr}.lab-notes{grid-template-columns:1fr}}
+@media(max-width:760px){.speech-editor,.speech-settings{padding:20px}.range-grid,.form-grid{grid-template-columns:1fr}.speech-actions .button{justify-content:center;flex:1 1 calc(50% - 9px)}.field-meta,.contact-form-foot{align-items:flex-start;flex-direction:column}.contact-form-foot .button{width:100%;justify-content:center}.contact-email{overflow-wrap:anywhere}}

@@ -13,7 +13,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const project = projectBySlug[slug];
   if (!project) return {};
-  return { title: project.title, description: project.summary };
+  const canonical = `/work/${project.slug}`;
+  return {
+    title: project.title,
+    description: project.summary,
+    alternates: { canonical },
+    openGraph: { title: project.title, description: project.summary, url: canonical },
+  };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
@@ -23,12 +29,13 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": project.links?.length ? "SoftwareApplication" : "CreativeWork",
     name: project.title,
     description: project.summary,
     creator: { "@type": "Person", name: "Nishant Jha" },
     url: `https://nishant.top/work/${project.slug}`,
     keywords: project.tags.join(", "),
+    ...(project.links?.[0] ? { sameAs: project.links[0].href, applicationCategory: "BusinessApplication" } : {}),
   };
 
   return (
@@ -42,6 +49,13 @@ export default async function ProjectPage({ params }: PageProps) {
           <p className="detail-description">{project.description}</p>
           <div className="detail-facts">{project.details.map((detail) => <div key={detail.label}><span>{detail.label}</span><strong>{detail.value}</strong></div>)}</div>
           {project.flow && <div className="case-flow"><p className="section-index">THE OPERATING FLOW</p>{project.flow.map((step) => <div className="case-flow-step" key={step.label}><span>{step.label}</span><strong>{step.value}</strong></div>)}</div>}
+          <section className="case-study" aria-labelledby="case-study-heading">
+            <p className="section-index" id="case-study-heading">CASE STUDY</p>
+            <div className="case-block"><h2>The challenge</h2><p>{project.caseStudy.challenge}</p></div>
+            <div className="case-block"><h2>What I designed and built</h2><ul>{project.caseStudy.decisions.map((decision) => <li key={decision}>{decision}</li>)}</ul></div>
+            <div className="case-block"><h2>Outcome</h2><ul>{project.caseStudy.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul></div>
+            {project.caseStudy.disclosure ? <p className="case-disclosure">{project.caseStudy.disclosure}</p> : null}
+          </section>
           <div className="detail-links">{project.links?.map((link) => <a className="button button-primary" href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>
         </div>
       </div>

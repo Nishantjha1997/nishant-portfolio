@@ -15,7 +15,7 @@ const experience = [
     period: "Current",
     title: "Executive, Founder's Office",
     company: "CallHippo",
-    summary: "Executive operations, cross-functional execution, and business transformation support.",
+    summary: "Current role in the Founder's Office. Public scope details are intentionally limited to approved information.",
   },
   {
     period: "Previous role",

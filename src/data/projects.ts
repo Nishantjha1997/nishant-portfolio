@@ -10,6 +10,12 @@ export type Project = {
   links?: { label: string; href: string }[];
   details: { label: string; value: string }[];
   flow?: { label: string; value: string }[];
+  caseStudy: {
+    challenge: string;
+    decisions: string[];
+    outcomes: string[];
+    disclosure?: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -33,6 +39,18 @@ export const projects: Project[] = [
       { label: "02", value: "Guide content with structured prompts" },
       { label: "03", value: "Edit, preview, and export" },
     ],
+    caseStudy: {
+      challenge: "Resume tools often force people to choose between generic templates and a blank page. FlowCreate needed to provide enough structure to create momentum without taking ownership of the user's story.",
+      decisions: [
+        "Designed a guided content flow around the decisions applicants actually make.",
+        "Built more than 30 ATS-aware layouts with live editing and preview.",
+        "Kept export and customization inside the same focused workspace.",
+      ],
+      outcomes: [
+        "A complete journey from raw career information to an export-ready resume.",
+        "Reusable product patterns for guided AI assistance, preview, and document generation.",
+      ],
+    },
   },
   {
     slug: "streamfree",
@@ -54,6 +72,19 @@ export const projects: Project[] = [
       { label: "02", value: "Resolve a responsive player and source choice" },
       { label: "03", value: "Track history and recover gracefully" },
     ],
+    caseStudy: {
+      challenge: "A catalog experience feels broken when discovery is slow, mobile controls fight the embedded player, or a provider becomes unavailable. StreamFree needed one coherent experience across browsing, playback, account history, and installation.",
+      decisions: [
+        "Built responsive discovery, search, title detail, and playback flows for Movies, TV, and Anime.",
+        "Created provider-aware source controls that preserve user choice without hiding reliability limits.",
+        "Added PWA installation, authentication, watch history, SEO, analytics, and an admin view as one product system.",
+      ],
+      outcomes: [
+        "A branded, mobile-first web product deployed on StreamFree's own domain.",
+        "A reusable player shell and operating model for multiple media types and source providers.",
+      ],
+      disclosure: "StreamFree is a discovery and playback interface. It does not claim to host the third-party media files surfaced by external providers.",
+    },
   },
   {
     slug: "gitlab-access-automation",
@@ -74,6 +105,19 @@ export const projects: Project[] = [
       { label: "02", value: "Layered validation and 2FA check" },
       { label: "03", value: "Provision, escalate, expire, and audit" },
     ],
+    caseStudy: {
+      challenge: "Repository-access requests depended on repeated manual checks across HR, project assignment, GitLab identity, 2FA status, repository scope, and requested role. Normal fulfilment could take up to 24 hours.",
+      decisions: [
+        "Connected a structured request sheet to HR, project, GitLab, Asana, and Gmail validation workflows.",
+        "Used allowlists, namespace restrictions, idempotent fingerprints, locks, retries, circuit breakers, and a dead-letter path to make automatic processing safe.",
+        "Automatically granted only eligible time-bound roles; elevated access always entered an approval path and Owner/Admin was never auto-granted.",
+      ],
+      outcomes: [
+        "Reduced normal eligible-request turnaround from up to 24 hours to a maximum 30-minute processing window.",
+        "Added expiration handling, requester notifications, an audit trail, and operational dashboard visibility.",
+      ],
+      disclosure: "This is a sanitized case study. Source code, internal URLs, production configuration, company namespaces, employee data, and credentials are intentionally not published.",
+    },
   },
   {
     slug: "claude-usage-uploader",
@@ -95,6 +139,19 @@ export const projects: Project[] = [
       { label: "02", value: "Queue and retry safely offline" },
       { label: "03", value: "Sync idempotently with dashboard visibility" },
     ],
+    caseStudy: {
+      challenge: "A cross-platform usage utility had to continue collecting safely through network loss, application restarts, and temporary backend failures while remaining straightforward to install and support.",
+      decisions: [
+        "Designed an offline-first durable outbox with idempotent uploads and retry backoff.",
+        "Separated write streams to reduce Apps Script lock contention and added health, repair, and update workflows.",
+        "Packaged smoke-gated releases for Windows, Linux, macOS Intel, and Apple Silicon with checksums.",
+      ],
+      outcomes: [
+        "Reduced Apps Script lock collisions by 95% through separated write paths.",
+        "Created a resilient release and handover model with cross-platform binaries and recovery tooling.",
+      ],
+      disclosure: "The linked repository contains public release artifacts. Private source code, internal infrastructure, confidential endpoints, and telemetry data are not published.",
+    },
   },
   {
     slug: "my-fitness-blueprint",
@@ -116,6 +173,18 @@ export const projects: Project[] = [
       { label: "02", value: "Plan routines and track workouts" },
       { label: "03", value: "Review progress and adjust" },
     ],
+    caseStudy: {
+      challenge: "Fitness plans are easy to create and difficult to follow. The product needed to connect goals, workouts, and progress in a way that made the next action obvious.",
+      decisions: [
+        "Organized planning around goals, repeatable routines, and clear progress views.",
+        "Used an AI-assisted build workflow while keeping the final product decisions and implementation ownership end to end.",
+        "Kept the interface focused on practical tracking rather than an overloaded health dashboard.",
+      ],
+      outcomes: [
+        "A live personalized fitness-planning prototype with workout and progress workflows.",
+        "A practical product experiment in turning broad goals into repeatable daily actions.",
+      ],
+    },
   },
   {
     slug: "operations-insights-dashboard",
@@ -136,6 +205,19 @@ export const projects: Project[] = [
       { label: "02", value: "Normalize records into usable KPIs" },
       { label: "03", value: "Surface constraints and decisions" },
     ],
+    caseStudy: {
+      challenge: "Leadership signals were spread across operational systems, making workload, capacity, delivery risk, and emerging bottlenecks difficult to see in one place.",
+      decisions: [
+        "Normalized project and workload activity into a small set of decision-oriented indicators.",
+        "Designed views around capacity, delivery, and exceptions instead of raw activity volume.",
+        "Kept the public explanation generic so internal data and company operating details remain private.",
+      ],
+      outcomes: [
+        "A real-time operating pulse that shortened the path from activity data to leadership action.",
+        "A reusable reporting pattern for translating fragmented operational records into practical decisions.",
+      ],
+      disclosure: "The public case study contains no company identifiers, employee information, production data, or internal dashboard links.",
+    },
   },
 ];
 
