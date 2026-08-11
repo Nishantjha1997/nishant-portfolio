@@ -11,6 +11,7 @@ export function SiteHeader() {
       <nav className="top-nav" aria-label="Primary navigation">
         <Link href="/#work">Work</Link>
         <Link href="/labs/ai-tts">Labs</Link>
+        <a className="nav-tool" href="https://youtube-scripto-scribe.vercel.app/" target="_blank" rel="noreferrer">YT Transcriber <span>Beta</span></a>
         <Link href="/resume">Resume</Link>
         <Link className="nav-cta" href="/contact">Let&apos;s talk <span aria-hidden="true">↗</span></Link>
       </nav>

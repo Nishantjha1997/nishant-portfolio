@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Mark } from "@/components/Mark";
@@ -60,6 +61,8 @@ export default function HomePage() {
     <>
       <section className="hero page-shell">
         <div className="hero-orbit" aria-hidden="true"><Mark /></div>
+        <div className="hero-grid">
+          <div className="hero-copy">
         <p className="eyebrow reveal">Executive operations · AI automation · digital products</p>
         <h1 className="reveal delay-1">I turn ambitious ideas into <em>clear, useful systems.</em></h1>
         <p className="hero-lede reveal delay-2">I&apos;m Nishant Jha, an Executive in the Founder&apos;s Office at CallHippo. I work across leadership, operations, engineering, and delivery to move important work from ambiguity to execution.</p>
@@ -68,6 +71,12 @@ export default function HomePage() {
           <Link className="button button-quiet" href="/contact">Start a conversation <span aria-hidden="true">↗</span></Link>
         </div>
         <div className="hero-foot reveal delay-3"><span>Currently at CallHippo</span><span className="status-dot" /><span>Ahmedabad, India · open to thoughtful collaborations</span></div>
+          </div>
+          <aside className="hero-profile reveal delay-2" aria-label="About Nishant Jha">
+            <div className="profile-frame"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha" fill priority sizes="(max-width: 760px) 82vw, 34vw" className="profile-photo" /></div>
+            <div className="profile-caption"><span>01 / PROFILE</span><strong>Operator, builder, curious human.</strong></div>
+          </aside>
+        </div>
       </section>
 
       <section className="impact-strip page-shell" aria-label="Selected impact">

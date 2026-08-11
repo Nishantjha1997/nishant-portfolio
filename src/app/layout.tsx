@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Nishant Jha",
   },
   description: "Nishant Jha is an Executive in the Founder's Office at CallHippo, building AI-enabled operations, automation, internal tools, and thoughtful digital products.",
-  keywords: ["Nishant Jha", "Founder's Office", "Executive Operations", "AI Automation", "Business Operations", "Process Improvement", "Internal Tools"],
+  keywords: ["Nishant Jha", "Founder's Office", "Executive Operations", "AI Automation", "Business Operations", "Process Improvement", "Internal Tools", "YT Transcriber", "YouTube transcript tool", "GitLab access automation"],
   alternates: { canonical: siteUrl },
   manifest: "/manifest.webmanifest",
   openGraph: {
@@ -36,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Nishant Jha",
+    image: `${siteUrl}/images/nishant-jha-profile.jpg`,
     jobTitle: "Executive, Founder's Office",
     worksFor: { "@type": "Organization", name: "CallHippo" },
     url: siteUrl,

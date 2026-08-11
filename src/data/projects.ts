@@ -87,6 +87,43 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "yt-transcriber",
+    title: "YT Transcriber",
+    kicker: "Caption-aware transcript tool",
+    summary: "A browser-first utility that turns available YouTube caption tracks into searchable, timestamped text and exportable files.",
+    description: "YT Transcriber pairs a focused transcript workspace with strict video validation, language selection, search, timestamp links, and TXT, SRT, and WebVTT exports. It is a public beta: availability depends on whether YouTube exposes captions to the request source, and it does not bypass private or restricted media.",
+    tags: ["Vite", "Node.js", "YouTube captions", "Product UX"],
+    accent: "teal",
+    metric: "Public beta",
+    links: [
+      { label: "Open live beta", href: "https://youtube-scripto-scribe.vercel.app/" },
+      { label: "View GitHub repository", href: "https://github.com/Nishantjha1997/youtube-scripto-scribe" },
+    ],
+    details: [
+      { label: "Role", value: "Product, UX, and full-stack implementation" },
+      { label: "Focus", value: "Caption extraction, search, export, resilient errors" },
+      { label: "Outcome", value: "A compact transcript workflow that stays clear about caption availability" },
+    ],
+    flow: [
+      { label: "01", value: "Validate a YouTube URL or video ID" },
+      { label: "02", value: "Choose an exposed caption language and search the transcript" },
+      { label: "03", value: "Jump by timestamp or export TXT, SRT, and WebVTT" },
+    ],
+    caseStudy: {
+      challenge: "Transcript tools often hide whether a result is real, which language was selected, or why a video cannot be extracted. The product needed a fast, readable flow with honest failure states.",
+      decisions: [
+        "Replaced placeholder success states with a same-origin Node extraction route backed by a community caption package.",
+        "Added language selection, transcript search, timestamp navigation, bounded responses, caching, and rate limits.",
+        "Kept the interface explicit about public-beta limits: caption availability varies by video and request origin.",
+      ],
+      outcomes: [
+        "A focused workflow from video URL to searchable transcript and download-ready caption formats.",
+        "A reusable example of pairing a polished interface with transparent upstream reliability boundaries.",
+      ],
+      disclosure: "This is a public beta. It only works when a caption track is exposed to the service; it does not bypass private videos, restricted captions, or YouTube access controls.",
+    },
+  },
+  {
     slug: "gitlab-access-automation",
     title: "GitLab Access Automation",
     kicker: "Internal operations system",
