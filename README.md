@@ -5,7 +5,7 @@ Public portfolio for Nishant Jha — Executive, Founder's Office at CallHippo, f
 ## What is included
 
 - Recruiter-focused homepage with verified experience, operating strengths, and measurable outcomes.
-- Detailed, sanitized case studies for FlowCreate, StreamFree, YT Transcriber, GitLab Access Automation, Claude Usage Uploader, My Fitness Blueprint, and Operations Insights.
+- Detailed, sanitized case studies for MakeCV — FlowCreate, StreamFree, YT Transcriber, GitLab Access Automation, Claude Usage Uploader, My Fitness Blueprint, and Operations Insights.
 - A public profile portrait in the homepage hero and Person structured metadata. Personal phone details remain excluded from the public HTML.
 - A beta YT Transcriber link beside Labs and a project case study at `/work/yt-transcriber`.
 - Working text-to-speech lab at `/labs/ai-tts`, using device-provided browser speech with voice, speed, pitch, pause, resume, stop, and script download controls.
