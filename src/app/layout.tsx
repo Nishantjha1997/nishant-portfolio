@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
         <SiteHeader />
         <main>{children}</main>
+        <Analytics />
         <footer className="site-footer"><span>© {new Date().getFullYear()} Nishant Jha</span><span>Built with curiosity, systems thinking, and care.</span></footer>
       </body>
     </html>
