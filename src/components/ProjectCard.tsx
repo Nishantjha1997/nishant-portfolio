@@ -5,6 +5,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <Link
       className={`project-card accent-${project.accent}`}
+      data-reveal="item"
       href={`/work/${project.slug}`}
       style={{ "--card-index": index } as React.CSSProperties}
       aria-label={`Read the ${project.title} case study`}
