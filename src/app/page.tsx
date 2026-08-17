@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Mark } from "@/components/Mark";
 import { AmbientField } from "@/components/AmbientField";
 import { projects } from "@/data/projects";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 const impact = [
   { value: "24h -> 30m", label: "eligible GitLab access turnaround" },
@@ -58,16 +66,84 @@ const credentials = [
 ];
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Nishant Jha",
+        alternateName: "Nishant Jha Portfolio",
+        description: "The professional portfolio and resume of Nishant Jha.",
+        inLanguage: "en-IN",
+        publisher: { "@id": `${siteUrl}/#person` },
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteUrl}/#profile-page`,
+        url: siteUrl,
+        name: "Nishant Jha - Founder's Office and AI Automation Portfolio",
+        description: "Portfolio, experience, projects, and resume of Nishant Jha, a Founder's Office executive and AI automation builder in Ahmedabad, India.",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        mainEntity: { "@id": `${siteUrl}/#person` },
+        inLanguage: "en-IN",
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: "Nishant Jha",
+        alternateName: "Nishant",
+        url: siteUrl,
+        image: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/images/nishant-jha-profile.jpg`,
+          caption: "Nishant Jha",
+        },
+        description: "Founder's Office executive at CallHippo focused on executive operations, AI automation, internal tools, and digital products.",
+        jobTitle: "Executive, Founder's Office",
+        worksFor: {
+          "@type": "Organization",
+          name: "CallHippo",
+          url: "https://callhippo.com/",
+        },
+        homeLocation: {
+          "@type": "Place",
+          name: "Ahmedabad, Gujarat, India",
+        },
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "Bachelor of Computer Application (BCA)",
+        },
+        knowsAbout: [
+          "Executive operations",
+          "Founder's Office",
+          "AI automation",
+          "Business operations",
+          "Process improvement",
+          "Internal tools",
+          "Product development",
+        ],
+        sameAs: [
+          "https://www.linkedin.com/in/nishant-jha-059828104/",
+          "https://github.com/Nishantjha1997",
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="hero page-shell" data-reveal="hero">
         <AmbientField tone="coral" />
         <div className="hero-orbit" aria-hidden="true"><Mark /></div>
         <div className="hero-grid">
           <div className="hero-copy">
-        <p className="eyebrow reveal">Executive operations · AI automation · digital products</p>
-        <h1 className="reveal delay-1">I turn ambitious ideas into <em>clear, useful systems.</em></h1>
-        <p className="hero-lede reveal delay-2">I&apos;m Nishant Jha, an Executive in the Founder&apos;s Office at CallHippo. I work across leadership, operations, engineering, and delivery to move important work from ambiguity to execution.</p>
+        <p className="eyebrow reveal">Founder&apos;s Office portfolio · AI automation · digital products</p>
+        <h1 className="reveal delay-1"><span className="hero-name">Nishant Jha.</span> I turn ambitious ideas into <em>clear, useful systems.</em></h1>
+        <p className="hero-lede reveal delay-2">I&apos;m an Executive in the Founder&apos;s Office at CallHippo. I work across leadership, operations, engineering, and delivery to move important work from ambiguity to execution.</p>
         <div className="hero-actions reveal delay-3">
           <Link className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></Link>
           <Link className="button button-quiet" href="/contact">Start a conversation <span aria-hidden="true">↗</span></Link>
@@ -75,7 +151,7 @@ export default function HomePage() {
         <div className="hero-foot reveal delay-3"><span>Currently at CallHippo</span><span className="status-dot" /><span>Ahmedabad, India · open to thoughtful collaborations</span></div>
           </div>
           <aside className="hero-profile reveal delay-2" aria-label="About Nishant Jha">
-            <div className="profile-frame"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha" fill priority sizes="(max-width: 760px) 82vw, 34vw" className="profile-photo" /></div>
+            <div className="profile-frame"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha, Founder's Office executive and AI automation builder" fill priority sizes="(max-width: 760px) 82vw, 34vw" className="profile-photo" /></div>
             <div className="profile-caption"><span>01 / PROFILE</span><strong>Operator, builder, curious human.</strong></div>
           </aside>
         </div>
@@ -86,8 +162,8 @@ export default function HomePage() {
       </section>
 
       <section className="section page-shell intro-grid" data-reveal="section">
-        <div><p className="section-index">01 / THE THROUGH-LINE</p><h2>Make the complex <em>move.</em></h2></div>
-        <div className="intro-copy"><p>My work sits at the intersection of executive leverage and hands-on building. I translate requirements into operating rhythms, dashboards, automations, and products that make the next decision easier.</p><p>Whether it is a leadership initiative, a cross-functional process, or a product I am building end to end, I care about the details that turn a promising idea into dependable daily use.</p></div>
+        <div><p className="section-index">01 / ABOUT</p><h2>About <em>Nishant Jha.</em></h2></div>
+        <div className="intro-copy"><p>I&apos;m a Founder&apos;s Office and business operations professional based in Ahmedabad, India. My portfolio sits at the intersection of executive leverage and hands-on building: I translate requirements into operating rhythms, dashboards, AI automations, and digital products that make the next decision easier.</p><p>Whether it is a leadership initiative, a cross-functional process, or a product I am building end to end, I care about the details that turn a promising idea into dependable daily use. You can explore my work below or read my <Link className="text-link" href="/resume">resume</Link>.</p></div>
       </section>
 
       <section id="work" className="section page-shell work-section" data-reveal="section">

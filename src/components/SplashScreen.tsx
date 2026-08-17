@@ -71,7 +71,7 @@ export function SplashScreen() {
         </div>
 
         <p className="splash-signal">Founder&apos;s Office <span>×</span> AI automation <span>×</span> thoughtful products</p>
-        <h1>Making <em>complex</em> things move.</h1>
+        <p className="splash-heading">Making <em>complex</em> things move.</p>
         <p className="splash-status"><i /> {currentStage.label}</p>
       </div>
 

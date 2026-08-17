@@ -10,52 +10,61 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nishant Jha - Founder's Office, Executive Operations & AI Automation",
+    default: "Nishant Jha | Founder's Office & AI Automation Portfolio",
     template: "%s | Nishant Jha",
   },
-  description: "Nishant Jha is an Executive in the Founder's Office at CallHippo, building AI-enabled operations, automation, internal tools, and thoughtful digital products.",
-  keywords: ["Nishant Jha", "Founder's Office", "Executive Operations", "AI Automation", "Business Operations", "Process Improvement", "Internal Tools", "YT Transcriber", "YouTube transcript tool", "GitLab access automation"],
-  alternates: { canonical: siteUrl },
+  description: "Nishant Jha is a Founder's Office executive at CallHippo in Ahmedabad. Explore his portfolio, AI automation projects, operations work, and resume.",
+  applicationName: "Nishant Jha Portfolio",
+  authors: [{ name: "Nishant Jha", url: siteUrl }],
+  creator: "Nishant Jha",
+  publisher: "Nishant Jha",
+  category: "Professional portfolio",
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Nishant Jha - Executive Operations & AI Automation",
-    description: "Executive operations, cross-functional delivery, and practical automation systems.",
+    title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
+    description: "Explore Nishant Jha's portfolio, AI automation projects, executive operations work, and resume.",
     siteName: "Nishant Jha",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - Executive operations and AI automation" }],
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - Founder's Office and AI automation portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nishant Jha - Executive Operations & AI Automation",
-    description: "Executive operations, cross-functional delivery, and practical automation systems.",
+    title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
+    description: "Explore Nishant Jha's portfolio, AI automation projects, operations work, and resume.",
     images: ["/opengraph-image"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const person = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Nishant Jha",
-    image: `${siteUrl}/images/nishant-jha-profile.jpg`,
-    jobTitle: "Executive, Founder's Office",
-    worksFor: { "@type": "Organization", name: "CallHippo" },
-    url: siteUrl,
-    sameAs: ["https://github.com/Nishantjha1997", "https://streamfree.online/", "https://flowcreate-similar-dream.vercel.app/"],
-  };
-
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body>
         <SplashScreen />
         <ScrollMotion />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
         <SiteHeader />
         <main>{children}</main>
         <Analytics />
-        <footer className="site-footer"><span>© {new Date().getFullYear()} Nishant Jha</span><span>Built with curiosity, systems thinking, and care.</span></footer>
+        <footer className="site-footer">
+          <span>© {new Date().getFullYear()} Nishant Jha</span>
+          <nav aria-label="Footer navigation">
+            <a href="/resume">Nishant Jha Resume</a>
+            <a href="https://www.linkedin.com/in/nishant-jha-059828104/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/Nishantjha1997" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        </footer>
       </body>
     </html>
   );
