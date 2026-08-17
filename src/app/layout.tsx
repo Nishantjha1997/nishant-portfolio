@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   creator: "Nishant Jha",
   publisher: "Nishant Jha",
   category: "Professional portfolio",
+  verification: { google: "nnbaAqvjLNHLQ-UYrV9G1c8ecKnW6Vb_4Cem_YQXgMY" },
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
