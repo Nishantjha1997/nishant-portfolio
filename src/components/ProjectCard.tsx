@@ -11,10 +11,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       aria-label={`Read the ${project.title} case study`}
     >
       <div className="card-topline">
-        <span>{String(index + 1).padStart(2, "0")}</span>
+        <span>CASE / {String(index + 1).padStart(2, "0")}</span>
         <span>{project.metric}</span>
       </div>
-      <div className="card-art" aria-hidden="true"><span>{project.title.split(" ").map((word) => word[0]).join("").slice(0, 3)}</span></div>
+      <div className="card-art" aria-hidden="true"><i /><span>{project.title.split(" ").map((word) => word[0]).join("").slice(0, 3)}</span><b>↗</b></div>
       <div className="card-copy">
         <p className="eyebrow">{project.kicker}</p>
         <h3>{project.title}</h3>

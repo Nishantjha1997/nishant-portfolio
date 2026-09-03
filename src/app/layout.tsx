@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { SplashScreen } from "@/components/SplashScreen";
 import { ScrollMotion } from "@/components/ScrollMotion";
 import "./globals.css";
+import "./liquid-glass.css";
+import "./sylva.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
@@ -53,7 +54,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-IN">
       <body>
-        <SplashScreen />
         <ScrollMotion />
         <SiteHeader />
         <main>{children}</main>

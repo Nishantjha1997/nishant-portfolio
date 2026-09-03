@@ -1,192 +1,135 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
 import { ProjectCard } from "@/components/ProjectCard";
-import { Mark } from "@/components/Mark";
-import { AmbientField } from "@/components/AmbientField";
+import { SylvaPortfolio } from "@/components/SylvaPortfolio";
 import { projects } from "@/data/projects";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
+  title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
+  description: "Nishant Jha builds clear operating systems, AI automations, and useful digital products from ambitious ideas.",
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
 
 const impact = [
-  { value: "24h -> 30m", label: "eligible GitLab access turnaround" },
-  { value: "95%", label: "fewer Apps Script lock collisions" },
-  { value: "25%", label: "CSAT improvement through process standardization" },
-  { value: "100+", label: "new hires supported through onboarding" },
+  { value: "24h → 30m", label: "Eligible access turnaround" },
+  { value: "95%", label: "Fewer lock collisions" },
+  { value: "25%", label: "CSAT improvement" },
+  { value: "100+", label: "New hires supported" },
 ];
 
 const experience = [
-  {
-    period: "Current",
-    title: "Executive, Founder's Office",
-    company: "CallHippo",
-    summary: "Current role in the Founder's Office. Public scope details are intentionally limited to approved information.",
-  },
-  {
-    period: "Previous role",
-    title: "Executive Assistant to CEO | Founder's Office & Business Operations",
-    company: "Sigma Solve",
-    summary: "Requirements, leadership reporting, operational dashboards, process improvement, and automation across teams.",
-  },
-  {
-    period: "Dec 2024 - Apr 2025",
-    title: "IT Trainer",
-    company: "Vagaro Technologies",
-    summary: "Product training, documentation, SDLC coordination, and team mentoring.",
-  },
-  {
-    period: "Aug 2020 - Feb 2024",
-    title: "Customer Support Representative & SME",
-    company: "TTEC India",
-    summary: "Support process improvement, onboarding, software enablement, and subject-matter expertise.",
-  },
+  { period: "Now", title: "Executive, Founder's Office", company: "CallHippo", summary: "Working across leadership, operations, engineering, and delivery to turn important priorities into dependable execution." },
+  { period: "Previous", title: "Executive Assistant to CEO", company: "Sigma Solve", summary: "Built leadership reporting, operating rhythms, dashboards, process improvements, and cross-functional automations." },
+  { period: "2024—25", title: "IT Trainer", company: "Vagaro Technologies", summary: "Delivered product training and documentation while supporting SDLC coordination and team mentoring." },
+  { period: "2020—24", title: "Customer Support Representative & SME", company: "TTEC India", summary: "Improved support processes and enabled onboarding, software adoption, and subject-matter excellence." },
 ];
 
 const strengths = [
   "Executive operations and decision support",
-  "Requirements gathering and stakeholder alignment",
-  "Process standardization, SOPs, and SOWs",
-  "Node.js automation and API integrations",
-  "Google Apps Script, Sheets, and dashboards",
-  "Asana, Google Workspace, SQL, Claude AI, and ChatGPT",
+  "Requirements and stakeholder alignment",
+  "Process design, SOPs, and SOWs",
+  "AI automation and internal tools",
+  "Node.js, APIs, Apps Script, and SQL",
+  "Dashboards and operating systems",
 ];
 
 const credentials = [
   "Microsoft Azure Fundamentals (AZ-900)",
-  "ICSI | CNSS Certified Network Security Specialist",
+  "CNSS Certified Network Security Specialist",
   "Six Sigma Yellow Belt",
   "SQL: Database Fundamentals",
-  "Full Stack & Front-End Web Development",
-  "Bachelor of Computer Application (BCA)",
+  "Full Stack & Front-End Development",
+  "Bachelor of Computer Application",
 ];
 
 export default function HomePage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": `${siteUrl}/#website`,
-        url: siteUrl,
-        name: "Nishant Jha",
-        alternateName: "Nishant Jha Portfolio",
-        description: "The professional portfolio and resume of Nishant Jha.",
-        inLanguage: "en-IN",
-        publisher: { "@id": `${siteUrl}/#person` },
-      },
-      {
-        "@type": "ProfilePage",
-        "@id": `${siteUrl}/#profile-page`,
-        url: siteUrl,
-        name: "Nishant Jha - Founder's Office and AI Automation Portfolio",
-        description: "Portfolio, experience, projects, and resume of Nishant Jha, a Founder's Office executive and AI automation builder in Ahmedabad, India.",
-        isPartOf: { "@id": `${siteUrl}/#website` },
-        mainEntity: { "@id": `${siteUrl}/#person` },
-        inLanguage: "en-IN",
-      },
-      {
-        "@type": "Person",
-        "@id": `${siteUrl}/#person`,
-        name: "Nishant Jha",
-        alternateName: "Nishant",
-        url: siteUrl,
-        image: {
-          "@type": "ImageObject",
-          url: `${siteUrl}/images/nishant-jha-profile.jpg`,
-          caption: "Nishant Jha",
-        },
-        description: "Founder's Office executive at CallHippo focused on executive operations, AI automation, internal tools, and digital products.",
-        jobTitle: "Executive, Founder's Office",
-        worksFor: {
-          "@type": "Organization",
-          name: "CallHippo",
-          url: "https://callhippo.com/",
-        },
-        homeLocation: {
-          "@type": "Place",
-          name: "Ahmedabad, Gujarat, India",
-        },
-        hasCredential: {
-          "@type": "EducationalOccupationalCredential",
-          credentialCategory: "degree",
-          name: "Bachelor of Computer Application (BCA)",
-        },
-        knowsAbout: [
-          "Executive operations",
-          "Founder's Office",
-          "AI automation",
-          "Business operations",
-          "Process improvement",
-          "Internal tools",
-          "Product development",
-        ],
-        sameAs: [
-          "https://www.linkedin.com/in/nishant-jha-059828104/",
-          "https://github.com/Nishantjha1997",
-        ],
-      },
+      { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Nishant Jha", inLanguage: "en-IN" },
+      { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Nishant Jha", url: siteUrl, image: `${siteUrl}/images/nishant-jha-profile.jpg`, jobTitle: "Executive, Founder's Office", homeLocation: "Ahmedabad, Gujarat, India", sameAs: ["https://www.linkedin.com/in/nishant-jha-059828104/", "https://github.com/Nishantjha1997"] },
     ],
   };
 
   return (
-    <>
+    <div className="sylva-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <section className="hero page-shell" data-reveal="hero">
-        <AmbientField tone="coral" />
-        <div className="hero-orbit" aria-hidden="true"><Mark /></div>
-        <div className="hero-grid">
-          <div className="hero-copy">
-        <p className="eyebrow reveal">Founder&apos;s Office portfolio · AI automation · digital products</p>
-        <h1 className="reveal delay-1"><span className="hero-name">Nishant Jha.</span> I turn ambitious ideas into <em>clear, useful systems.</em></h1>
-        <p className="hero-lede reveal delay-2">I&apos;m an Executive in the Founder&apos;s Office at CallHippo. I work across leadership, operations, engineering, and delivery to move important work from ambiguity to execution.</p>
-        <div className="hero-actions reveal delay-3">
-          <Link className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></Link>
-          <Link className="button button-quiet" href="/contact">Start a conversation <span aria-hidden="true">↗</span></Link>
-        </div>
-        <div className="hero-foot reveal delay-3"><span>Currently at CallHippo</span><span className="status-dot" /><span>Ahmedabad, India · open to thoughtful collaborations</span></div>
+      <SylvaPortfolio />
+
+      <section className="sylva-hero page-shell" id="home">
+        <div className="sylva-hero-copy">
+          <p className="sylva-kicker"><span /> Founder&apos;s Office · AI automation · product systems</p>
+          <h1>Nishant Jha.<br /><em>I make complex work feel clear.</em></h1>
+          <p className="sylva-lede">I work where leadership, operations, and technology meet—turning ambitious ideas into operating systems, automations, and digital products people can rely on.</p>
+          <div className="sylva-actions">
+            <Link className="sylva-button sylva-button-dark glass-button" href="#work"><span aria-hidden="true">☰</span> Explore my work</Link>
+            <a className="sylva-button sylva-button-light glass-button" href="/api/resume" download>Download résumé <span aria-hidden="true">↓</span></a>
           </div>
-          <aside className="hero-profile reveal delay-2" aria-label="About Nishant Jha">
-            <div className="profile-frame"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha, Founder's Office executive and AI automation builder" fill priority sizes="(max-width: 760px) 82vw, 34vw" className="profile-photo" /></div>
-            <div className="profile-caption"><span>01 / PROFILE</span><strong>Operator, builder, curious human.</strong></div>
-          </aside>
+          <div className="sylva-availability"><i /><span>Currently at CallHippo</span><b>·</b><span>Ahmedabad, India</span></div>
+        </div>
+
+        <div className="sylva-hero-cards" aria-label="Nishant Jha profile and impact">
+          <article className="profile-specimen sylva-float-card">
+            <div className="profile-photo-wrap"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha" fill priority sizes="(max-width: 720px) 72vw, 340px" /></div>
+            <p>Profile / 01</p>
+            <h2>Operator.<br />Builder.<br />Curious human.</h2>
+            <Link href="#about" aria-label="Read about Nishant Jha">↘</Link>
+          </article>
+          <article className="field-note sylva-float-card">
+            <p>Current field note</p>
+            <h2>Turning ambiguity into momentum.</h2>
+            <span>Founder&apos;s Office</span>
+          </article>
+          <div className="hero-metric hero-metric-one"><span>Products shipped</span><strong>6+</strong></div>
+          <div className="hero-metric hero-metric-two"><span>Primary mode</span><strong>Build + operate</strong></div>
         </div>
       </section>
 
-      <section className="impact-strip page-shell" aria-label="Selected impact" data-reveal="section">
-        {impact.map((item) => <div className="impact-item" key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+      <section className="sylva-impact page-shell" aria-label="Selected impact">
+        {impact.map((item, index) => <article key={item.label}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.value}</strong><p>{item.label}</p></article>)}
       </section>
 
-      <section className="section page-shell intro-grid" data-reveal="section">
-        <div><p className="section-index">01 / ABOUT</p><h2>About <em>Nishant Jha.</em></h2></div>
-        <div className="intro-copy"><p>I&apos;m a Founder&apos;s Office and business operations professional based in Ahmedabad, India. My portfolio sits at the intersection of executive leverage and hands-on building: I translate requirements into operating rhythms, dashboards, AI automations, and digital products that make the next decision easier.</p><p>Whether it is a leadership initiative, a cross-functional process, or a product I am building end to end, I care about the details that turn a promising idea into dependable daily use. You can explore my work below or read my <Link className="text-link" href="/resume">resume</Link>.</p></div>
-      </section>
-
-      <section id="work" className="section page-shell work-section" data-reveal="section">
-        <div className="section-heading"><div><p className="section-index">02 / SELECTED WORK</p><h2>Things I&apos;ve <em>built.</em></h2></div><p className="section-note">A mix of operating systems, internal tools, and products designed from the ground up.</p></div>
-        <div className="project-grid">{projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}</div>
-      </section>
-
-      <section className="section page-shell experience-section" data-reveal="section">
-        <div className="section-heading"><div><p className="section-index">03 / EXPERIENCE</p><h2>Close to the <em>work.</em></h2></div><p className="section-note">Roles shaped by ownership, coordination, and the habit of leaving systems clearer than I found them.</p></div>
-        <div className="experience-list">{experience.map((item) => <article className="experience-item" data-reveal="item" key={`${item.company}-${item.title}`}><span className="experience-period">{item.period}</span><div><h3>{item.title}</h3><p className="experience-company">{item.company}</p><p>{item.summary}</p></div></article>)}</div>
-      </section>
-
-      <section className="section page-shell capability-section" data-reveal="section">
-        <p className="section-index">04 / HOW I WORK</p>
-        <div className="capability-grid">
-          <article data-reveal="item"><span>01</span><h3>See the system</h3><p>Map the people, decisions, dependencies, and friction before proposing a fix.</p></article>
-          <article data-reveal="item"><span>02</span><h3>Build the bridge</h3><p>Connect tools and teams with automation that is documented, observable, and easy to hand over.</p></article>
-          <article data-reveal="item"><span>03</span><h3>Make it last</h3><p>Measure the outcome, close the loop, and leave behind a process people can trust.</p></article>
+      <section className="sylva-section sylva-surface glass-surface" id="about">
+        <div className="page-shell sylva-about-grid">
+          <div><p className="sylva-index">01 / ABOUT</p><h2>Close to the decision.<br /><em>Close to the work.</em></h2></div>
+          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office and business operations professional who also builds. I translate requirements into operating rhythms, dashboards, AI automations, and digital products that make the next decision easier.</p><p>I care about the details between a promising idea and dependable daily use: ownership, handoffs, failure states, documentation, measurement, and the people who need the system to work.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
         </div>
-        <div className="strengths-grid"><div><p className="section-index">OPERATING STRENGTHS</p><ul>{strengths.map((strength) => <li key={strength}>{strength}</li>)}</ul></div><div><p className="section-index">CREDENTIALS</p><ul>{credentials.map((credential) => <li key={credential}>{credential}</li>)}</ul></div></div>
       </section>
 
-      <section className="closing-cta page-shell" data-reveal="section"><p className="section-index">05 / NEXT STEP</p><h2>Have a messy problem<br /><em>worth solving?</em></h2><Link className="button button-primary" href="/contact">Let&apos;s talk <span aria-hidden="true">↗</span></Link></section>
-    </>
+      <section className="sylva-section sylva-work glass-surface" id="work">
+        <div className="page-shell">
+          <div className="sylva-section-head"><div><p className="sylva-index">02 / SELECTED WORK</p><h2>Things I&apos;ve <em>built.</em></h2></div><p>Products and operating systems designed to remove friction, surface decisions, and keep working after handoff.</p></div>
+          <div className="sylva-project-grid">{projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}</div>
+        </div>
+      </section>
+
+      <section className="sylva-section sylva-surface glass-surface" id="experience">
+        <div className="page-shell">
+          <div className="sylva-section-head"><div><p className="sylva-index">03 / EXPERIENCE</p><h2>A career built around <em>useful change.</em></h2></div><p>Roles shaped by ownership, coordination, and leaving systems clearer than I found them.</p></div>
+          <div className="sylva-experience-list">{experience.map((item, index) => <article key={`${item.company}-${item.title}`}><span>{item.period}</span><b>{String(index + 1).padStart(2, "0")}</b><div><p>{item.company}</p><h3>{item.title}</h3><small>{item.summary}</small></div></article>)}</div>
+        </div>
+      </section>
+
+      <section className="sylva-section sylva-capabilities">
+        <div className="page-shell">
+          <p className="sylva-index">04 / FIELD KIT</p>
+          <div className="sylva-section-head"><h2>How I turn intent<br />into <em>execution.</em></h2><p>Strategy is useful when it becomes a rhythm, a tool, or a decision someone can actually use.</p></div>
+          <div className="capability-cards"><article><span>01</span><h3>See the system</h3><p>Map people, decisions, dependencies, and friction before proposing a fix.</p></article><article><span>02</span><h3>Build the bridge</h3><p>Connect teams and tools with automation that is observable and easy to hand over.</p></article><article><span>03</span><h3>Make it last</h3><p>Measure the outcome, close the loop, and leave behind a process people trust.</p></article></div>
+          <div className="field-kit"><article><p>Operating strengths</p><ul>{strengths.map((strength) => <li key={strength}>{strength}</li>)}</ul></article><article><p>Credentials</p><ul>{credentials.map((credential) => <li key={credential}>{credential}</li>)}</ul></article></div>
+        </div>
+      </section>
+
+      <section className="sylva-contact page-shell" id="contact">
+        <p className="sylva-index">05 / NEXT FIELD NOTE</p>
+        <h2>Have a messy problem<br /><em>worth solving?</em></h2>
+        <p>Tell me what is stuck, what matters, and what better would look like.</p>
+        <div className="sylva-actions"><Link className="sylva-button sylva-button-light glass-button" href="/contact">Start a conversation <span>↗</span></Link><a className="sylva-button sylva-button-ghost glass-button" href="https://www.linkedin.com/in/nishant-jha-059828104/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div>
+      </section>
+    </div>
   );
 }
