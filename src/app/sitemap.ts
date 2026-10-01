@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...projects.map((project) => ({
       url: `${base}/work/${project.slug}`,
-      lastModified,
+      lastModified: project.updatedAt ? new Date(project.updatedAt) : lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
