@@ -31,11 +31,11 @@ const experience = [
 
 const strengths = [
   "Problem discovery and requirements",
-  "End-to-end product and workflow delivery",
+  "End-to-end, AI-assisted product delivery",
   "Safe AI adoption and automation",
   "Data analysis and decision dashboards",
   "Process design, SOPs, and handover",
-  "Node.js, APIs, Apps Script, and SQL",
+  "Deployment, integrations, and release checks",
 ];
 
 const featuredSlugs = ["gitlab-access-automation", "lead-cleanup", "ask-callhippo", "sales-meeting-punctuality"];
@@ -101,7 +101,7 @@ export default function HomePage() {
       <section className="sylva-section sylva-surface glass-surface" id="about">
         <div className="page-shell sylva-about-grid">
           <div><p className="sylva-index">01 / ABOUT</p><h2>Close to the problem.<br /><em>Close to the build.</em></h2></div>
-          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office operator with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>That might be a safe AI assistant, an auditable automation, a dashboard that makes the next decision obvious, or a better process. I move quickly, but I pay attention to adoption, exceptions, ownership, and handover.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
+          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office operator with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>I use Claude Code and Codex to build quickly, while owning the requirements, architecture, integrations, and pre-deployment checks. I stay close to adoption, exceptions, ownership, and handover so the result works in daily use.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
         </div>
       </section>
 

@@ -31,7 +31,7 @@ const experience = [
     company: "Sigma Solve",
     details: [
       "Acted as the CEO's operational right hand, owning priorities and cross-functional follow-through across engineering, delivery, HR, and leadership; supported business-transformation work from intake to closure.",
-      "Gathered and documented business requirements, prepared executive briefings and leadership updates, and drove decisions and action items to closure across departments.",
+      "Gathered, analyzed, and documented business requirements, prepared executive briefings and leadership updates, and drove decisions and action items to closure across departments.",
       "Built and maintained workload dashboards, operational reports, and activity logs that gave leadership real-time visibility into capacity, assignments, and delivery risk.",
       "Standardized operating processes, SOPs, and Statements of Work; monitored efficiency and recommended improvements that clarified scope between business and engineering.",
       "Designed and deployed automation across HR systems, Asana, Gmail, Google Sheets, and GitLab, with monitoring, retries, and escalation to reduce manual work and keep records in sync.",
@@ -62,11 +62,12 @@ const experience = [
 
 const skills = [
   "Problem discovery and stakeholder alignment",
-  "End-to-end workflow and product delivery",
-  "AI adoption with human review and source checks",
-  "Business intelligence, dashboards, and analytics",
-  "Process improvement, SOPs, and handover",
-  "Node.js, APIs, Google Apps Script, SQL, and Google Workspace",
+  "AI-assisted implementation with Claude Code and Codex",
+  "Architecture, integration, and generated-code review",
+  "Workflow, access, and data-safety checks before deployment",
+  "Vercel and Netlify deployment; Supabase, Resend, and Clerk integrations",
+  "Working understanding of Next.js, Node.js, TypeScript, APIs, Apps Script, and SQL",
+  "Business intelligence, process improvement, SOPs, and handover",
 ];
 
 const credentials = [
@@ -97,7 +98,7 @@ export default function ResumePage() {
       <Link className="back-link" href="/">← Back home</Link>
       <p className="eyebrow">NISHANT JHA / RESUME</p>
       <h1>Nishant Jha <em>Resume.</em></h1>
-      <p className="detail-summary">Forward-deployed builder and Founder&apos;s Office professional in Ahmedabad. I turn business problems into working tools, AI workflows, analytics, and processes teams can adopt.</p>
+      <p className="detail-summary">Forward-deployed builder and Founder&apos;s Office professional in Ahmedabad. I use Claude Code and Codex to implement business tools, then review the architecture, integrations, and release checks before deployment.</p>
 
       <div className="resume-panel">
         <div><span className="file-mark">PDF</span><div><strong>Nishant Jha — Resume</strong><p>Business problem → working system → adoption</p></div></div>
