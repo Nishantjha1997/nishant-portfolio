@@ -1,0 +1,38 @@
+/* A readable process diagram for selected case studies. Arrows are decorative; each step remains text. */
+.case-flow-diagram .case-flow-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .035);
+}
+
+.case-flow-diagram .case-flow-step:last-child {
+  margin-bottom: 0;
+}
+
+.case-flow-diagram .case-flow-step:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  color: var(--coral);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.case-flow-diagram .case-flow-step span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-weight: 700;
+}

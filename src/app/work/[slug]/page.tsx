@@ -1,3 +1,4 @@
+import "./flow-diagram.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -48,7 +49,7 @@ export default async function ProjectPage({ params }: PageProps) {
         <div className="detail-content">
           <p className="detail-description">{project.description}</p>
           <div className="detail-facts">{project.details.map((detail) => <div key={detail.label}><span>{detail.label}</span><strong>{detail.value}</strong></div>)}</div>
-          {project.flow && <div className="case-flow"><p className="section-index">THE OPERATING FLOW</p>{project.flow.map((step) => <div className="case-flow-step" key={step.label}><span>{step.label}</span><strong>{step.value}</strong></div>)}</div>}
+          {project.flow && <div className={`case-flow${project.flowDiagram ? " case-flow-diagram" : ""}`}><p className="section-index">THE OPERATING FLOW</p>{project.flow.map((step) => <div className="case-flow-step" key={step.label}><span>{step.label}</span><strong>{step.value}</strong></div>)}</div>}
           <section className="case-study" aria-labelledby="case-study-heading">
             <p className="section-index" id="case-study-heading">CASE STUDY</p>
             <div className="case-block"><h2>The challenge</h2><p>{project.caseStudy.challenge}</p></div>

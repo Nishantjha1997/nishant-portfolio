@@ -1,5 +1,6 @@
 export type Project = {
   slug: string;
+  updatedAt?: string;
   title: string;
   kicker: string;
   summary: string;
@@ -10,6 +11,7 @@ export type Project = {
   links?: { label: string; href: string }[];
   details: { label: string; value: string }[];
   flow?: { label: string; value: string }[];
+  flowDiagram?: boolean;
   caseStudy: {
     challenge: string;
     decisions: string[];
@@ -123,6 +125,111 @@ export const projects: Project[] = [
         "A reusable example of pairing a polished interface with transparent upstream reliability boundaries.",
       ],
       disclosure: "This is a public beta. It only works when a caption track is exposed to the service; it does not bypass private videos, restricted captions, or YouTube access controls.",
+    },
+  },
+  {
+    slug: "lead-cleanup",
+    updatedAt: "2026-10-01",
+    title: "Lead Cleanup",
+    kicker: "Explainable lead qualification",
+    summary: "Turns messy contact exports into a reviewed list of outreach-ready leads and an audit of every decision.",
+    description: "Lead Cleanup accepts Clay, LinkedIn, and Apollo CSV or XLSX exports. It applies clear qualification rules, finds duplicates, preserves the original rows, and separates ready leads from cases that need human review.",
+    tags: ["CSV and XLSX", "Policy rules", "Review queue", "Jev"],
+    accent: "green",
+    metric: "Ready leads + audit",
+    flowDiagram: true,
+    details: [
+      { label: "Role", value: "Product and implementation" },
+      { label: "Business question", value: "Which contacts fit our outreach criteria, and which need a person to decide?" },
+      { label: "Architecture", value: "Vite browser app, Node and Netlify Functions, deterministic rules, server-side Jev suggestions" },
+    ],
+    flow: [
+      { label: "01", value: "Upload and map a contact export without changing its source rows" },
+      { label: "02", value: "Apply versioned rules, duplicate checks, and company-level checks" },
+      { label: "03", value: "Review uncertain leads and export ready contacts with an audit file" },
+    ],
+    caseStudy: {
+      challenge: "Contact exports contain inconsistent job titles, duplicates, and old qualification labels that cannot be trusted as final decisions. Sales teams need to know which leads are ready for outreach and why.",
+      decisions: [
+        "Kept explicit policy rules and duplicate handling deterministic so the same input gets the same decision.",
+        "Used Jev only for typed suggestions on ambiguous seniority and function; people approve or reject those suggestions.",
+        "Separated the ready-to-contact export from the audit and review queue so provisional leads are not sent out as approved.",
+      ],
+      outcomes: [
+        "A repeatable path from raw exports to an explainable ready-lead list.",
+        "A review queue and audit file that show why each contact was accepted, rejected, or held.",
+      ],
+      disclosure: "Private contact exports and credentials are not published. AI suggestions remain provisional until reviewed.",
+    },
+  },
+  {
+    slug: "callhippo-purchase-management",
+    updatedAt: "2026-10-01",
+    title: "CallHippo Purchase Management",
+    kicker: "Internal procurement platform",
+    summary: "A single workflow for purchase requests, quotes, approvals, orders, receipts, invoices, and payment tracking.",
+    description: "This internal system brings the purchase journey into one place. Requesters can raise a need, teams can compare quotes and approve it, and finance can follow the order through receipt, invoice checks, and payment.",
+    tags: ["Next.js", "PostgreSQL", "Procurement", "Audit trails"],
+    accent: "amber",
+    metric: "Request → payment",
+    flowDiagram: true,
+    details: [
+      { label: "Role", value: "Product and implementation" },
+      { label: "Business question", value: "What should we buy, who approved it, and is the invoice safe to pay?" },
+      { label: "Architecture", value: "Next.js and TypeScript, PostgreSQL with Prisma, role-based workflows, background jobs" },
+    ],
+    flow: [
+      { label: "01", value: "Capture a request and compare supplier quotes" },
+      { label: "02", value: "Route approvals and issue a purchase order" },
+      { label: "03", value: "Record receipt, match the invoice, and track payment" },
+    ],
+    caseStudy: {
+      challenge: "Purchase information was spread across requests, supplier quotes, approvals, orders, receipts, and invoices. Teams needed a reliable way to see the current state and catch mismatches before payment.",
+      decisions: [
+        "Modeled each step as a role-checked state transition with an audit record.",
+        "Used configurable rules for approvals and a three-way match across purchase order, goods receipt, and invoice.",
+        "Kept the purchase history and follow-up jobs tied to the same record so handoffs remain visible.",
+      ],
+      outcomes: [
+        "An internal request-to-payment flow with clearer ownership at each stage.",
+        "A traceable record for comparing what was ordered, received, invoiced, and paid.",
+      ],
+      disclosure: "This public case study omits supplier records, spend data, employee access, private documents, and internal links.",
+    },
+  },
+  {
+    slug: "sales-meeting-punctuality",
+    updatedAt: "2026-10-01",
+    title: "Sales Meeting Punctuality",
+    kicker: "Client meeting audit and reviewer dashboard",
+    summary: "Shows whether a salesperson joined a client meeting on time using measured join evidence, with uncertain cases sent for review.",
+    description: "The system compares a meeting's scheduled start with actual participant joins. It helps managers distinguish an employee joining late while a client waits from a client arriving late or an attendance record that is simply incomplete.",
+    tags: ["Apps Script", "Calendar and Meet", "Google Sheets", "Review workflow"],
+    accent: "blue",
+    metric: "Measured joins + review",
+    flowDiagram: true,
+    details: [
+      { label: "Role", value: "Workflow and dashboard builder" },
+      { label: "Business question", value: "Did a salesperson join after the start while a confirmed client was waiting?" },
+      { label: "Architecture", value: "Apps Script reads Calendar and Meet audit data, writes Sheets, and serves a reviewer dashboard" },
+    ],
+    flow: [
+      { label: "01", value: "Find scheduled client-candidate meetings in verified calendars" },
+      { label: "02", value: "Compare measured employee and invited-client join times" },
+      { label: "03", value: "Keep an audit row and send uncertain cases to review" },
+    ],
+    caseStudy: {
+      challenge: "A recording start time does not show when a salesperson joined, and an invitation does not prove attendance. Managers needed a fair way to spot meetings where a client actually waited.",
+      decisions: [
+        "Used Calendar for scheduled times and Meet audit events for measured joins; optional Teams reports follow the same evidence rules.",
+        "Applied deterministic timing rules only when the invited client and employee joins could be matched to the same meeting.",
+        "Kept missing or ambiguous evidence visible as unverified instead of turning it into a lateness finding.",
+      ],
+      outcomes: [
+        "A Sheet-backed reviewer dashboard with traceable meeting evidence.",
+        "A more careful answer to which client meetings may need follow-up, without treating a flag as an employee verdict.",
+      ],
+      disclosure: "This is a sanitized internal case study. Employee identities, meeting details, private dashboards, and operational data are not published.",
     },
   },
   {
