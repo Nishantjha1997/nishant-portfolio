@@ -221,6 +221,8 @@ body:not(:has(.sylva-page)) main { position: relative; z-index: 1; padding-top: 
 .experience-item { border-color: rgba(244,247,239,.14); }
 .experience-item:hover { border-color: rgba(217,255,84,.38); }
 .experience-period, .experience-company { color: #b6c2ae !important; }
+.resume-page .experience-item ul { display: grid; gap: 8px; max-width: 760px; margin: 0; padding-left: 18px; color: #c6d0c0; font-size: 13px; line-height: 1.6; }
+.resume-page .experience-item li::marker { color: var(--acid); }
 .strengths-grid > div { border-color: rgba(244,247,239,.15); }
 .strengths-grid li { color: rgba(241,244,236,.66); }
 .strengths-grid li::before { background: var(--acid); }
