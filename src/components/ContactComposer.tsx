@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-const CONTACT_EMAIL = "nishantjha31@gmail.com";
+const CONTACT_EMAIL = "nishant@nishant.top";
 
 export function ContactComposer() {
   const [opened, setOpened] = useState(false);

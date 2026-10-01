@@ -9,8 +9,8 @@ import { projects } from "@/data/projects";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
-  title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
-  description: "Nishant Jha builds clear operating systems, AI automations, and useful digital products from ambitious ideas.",
+  title: "Nishant Jha in Ahmedabad | Founder's Office & AI Automation",
+  description: "Nishant Jha is a Founder's Office executive at CallHippo in Ahmedabad, India, building AI automations, operating systems, and useful digital products.",
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
@@ -52,7 +52,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Nishant Jha", inLanguage: "en-IN" },
-      { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Nishant Jha", url: siteUrl, image: `${siteUrl}/images/nishant-jha-profile.jpg`, jobTitle: "Executive, Founder's Office", homeLocation: "Ahmedabad, Gujarat, India", sameAs: ["https://www.linkedin.com/in/nishant-jha-059828104/", "https://github.com/Nishantjha1997"] },
+      { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Nishant Jha", alternateName: "Nishant", url: siteUrl, image: `${siteUrl}/images/nishant-jha-profile.jpg`, email: "nishant@nishant.top", jobTitle: "Executive, Founder's Office", homeLocation: { "@type": "Place", name: "Ahmedabad, Gujarat, India" }, sameAs: ["https://www.linkedin.com/in/nishant-jha-059828104/", "https://github.com/Nishantjha1997"] },
     ],
   };
 
