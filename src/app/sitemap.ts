@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const identityUpdatedAt = new Date("2026-10-01");
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: identityUpdatedAt, changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/resume`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/resume`, lastModified: identityUpdatedAt, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/contact`, lastModified: identityUpdatedAt, changeFrequency: "yearly", priority: 0.5 },
     { url: `${base}/labs/ai-tts`, lastModified, changeFrequency: "monthly", priority: 0.5 },
   ];

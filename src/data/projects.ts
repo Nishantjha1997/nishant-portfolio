@@ -300,7 +300,7 @@ export const projects: Project[] = [
     updatedAt: "2026-10-01",
     title: "CallHippo Purchase Management",
     kicker: "Internal procurement platform",
-    summary: "A single workflow for purchase requests, quotes, approvals, orders, receipts, invoices, and payment tracking.",
+    summary: "A pre-launch workflow for purchase requests, quotes, approvals, orders, receipts, invoices, and payment tracking.",
     description: "This pre-launch internal build brings the purchase journey into one place. Requesters can raise a need, teams can compare quotes and approve it, and finance can follow the order through receipt, invoice checks, and payment.",
     tags: ["Next.js", "PostgreSQL", "Procurement", "Audit trails"],
     accent: "amber",

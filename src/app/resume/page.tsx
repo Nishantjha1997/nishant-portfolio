@@ -4,13 +4,13 @@ import Link from "next/link";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nishant Jha Resume | Founder's Office & AI Automation" },
-  description: "View Nishant Jha's resume: Founder's Office experience, executive operations, AI automation, business process improvement, projects, skills, and credentials.",
+  title: { absolute: "Nishant Jha Resume | Forward-Deployed Builder" },
+  description: "Nishant Jha's resume: end-to-end AI adoption, automation, business intelligence, process improvement, and Founder's Office work in Ahmedabad.",
   alternates: { canonical: "/resume" },
   openGraph: {
     url: "/resume",
-    title: "Nishant Jha Resume | Founder's Office & AI Automation",
-    description: "Experience, projects, skills, and credentials from Nishant Jha's work across executive operations and AI automation.",
+    title: "Nishant Jha Resume | Forward-Deployed Builder",
+    description: "Experience and selected work across AI adoption, automation, analytics, and operational delivery.",
   },
 };
 
@@ -19,7 +19,7 @@ const experience = [
     period: "Current",
     title: "Executive, Founder's Office",
     company: "CallHippo",
-    summary: "Working across leadership, operations, engineering, and delivery. Public scope details are limited to approved information.",
+    summary: "Translate business needs into internal tools, evidence-led dashboards, AI adoption, and better operating processes with technical teams.",
   },
   {
     period: "Previous role",
@@ -42,12 +42,12 @@ const experience = [
 ];
 
 const skills = [
-  "Executive operations and decision support",
-  "Requirements gathering and stakeholder alignment",
-  "Process standardization, SOPs, and SOWs",
-  "AI automation and internal tools",
-  "Node.js, APIs, Google Apps Script, and SQL",
-  "Google Workspace, Asana, dashboards, Claude AI, and ChatGPT",
+  "Problem discovery and stakeholder alignment",
+  "End-to-end workflow and product delivery",
+  "AI adoption with human review and source checks",
+  "Business intelligence, dashboards, and analytics",
+  "Process improvement, SOPs, and handover",
+  "Node.js, APIs, Google Apps Script, SQL, and Google Workspace",
 ];
 
 const credentials = [
@@ -78,10 +78,10 @@ export default function ResumePage() {
       <Link className="back-link" href="/">← Back home</Link>
       <p className="eyebrow">NISHANT JHA / RESUME</p>
       <h1>Nishant Jha <em>Resume.</em></h1>
-      <p className="detail-summary">Founder&apos;s Office executive and business operations professional in Ahmedabad, India, building AI-enabled automations, internal tools, decision systems, and digital products.</p>
+      <p className="detail-summary">Forward-deployed builder and Founder&apos;s Office professional in Ahmedabad. I turn business problems into working tools, AI workflows, analytics, and processes teams can adopt.</p>
 
       <div className="resume-panel">
-        <div><span className="file-mark">PDF</span><div><strong>Nishant Jha — Resume</strong><p>Founder&apos;s Office · Executive Operations · AI Automation</p></div></div>
+        <div><span className="file-mark">PDF</span><div><strong>Nishant Jha — Resume</strong><p>Business problem → working system → adoption</p></div></div>
         <a className="button button-primary" href="/api/resume" download>Download PDF resume <span aria-hidden="true">↓</span></a>
       </div>
 
@@ -111,10 +111,10 @@ export default function ResumePage() {
         <p className="section-index">03 / SELECTED OUTCOMES</p>
         <h2 id="resume-projects">Selected projects and impact</h2>
         <ul>
-          <li><strong>GitLab Access Automation:</strong> reduced eligible access turnaround from up to 24 hours to a maximum 30-minute processing window.</li>
-          <li><strong>Claude Usage Uploader:</strong> reduced Google Apps Script lock collisions by 95% through separated write paths.</li>
-          <li><strong>Operations systems:</strong> built dashboards, automations, and standardized processes supporting leadership visibility and cross-functional delivery.</li>
-          <li><strong>Digital products:</strong> designed and built MakeCV, StreamFree, YT Transcriber, and other live product experiments.</li>
+          <li><strong>Operational automation:</strong> reduced eligible GitLab access turnaround from up to 24 hours to a maximum 30-minute processing window.</li>
+          <li><strong>Fast, safe AI adoption:</strong> identified the Lead Cleanup use case on Jev AI&apos;s second day after launch and kept its suggestions behind deterministic rules and human review.</li>
+          <li><strong>Knowledge and analytics:</strong> designed source-backed company answers and an evidence-led meeting dashboard that helps reviewers separate actual lateness from incomplete records.</li>
+          <li><strong>End-to-end systems:</strong> built a pre-launch purchase workflow, reporting tools, and live digital products from requirements through implementation.</li>
         </ul>
         <Link className="text-link" href="/#work">Explore Nishant Jha&apos;s portfolio and case studies →</Link>
       </section>
