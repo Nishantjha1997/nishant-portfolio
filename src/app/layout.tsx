@@ -11,10 +11,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nishant Jha | Founder's Office & AI Automation Portfolio",
+    default: "Nishant Jha | Forward-Deployed Builder",
     template: "%s | Nishant Jha",
   },
-  description: "Nishant Jha is a Founder's Office executive at CallHippo in Ahmedabad. Explore his portfolio, AI automation projects, operations work, and resume.",
+  description: "Nishant Jha is a forward-deployed builder in Ahmedabad working across AI adoption, automation, business intelligence, analytics, and operations.",
   applicationName: "Nishant Jha Portfolio",
   authors: [{ name: "Nishant Jha", url: siteUrl }],
   creator: "Nishant Jha",
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
-    description: "Explore Nishant Jha's portfolio, AI automation projects, executive operations work, and resume.",
+    title: "Nishant Jha | Forward-Deployed Builder",
+    description: "End-to-end AI adoption, automation, analytics, and operations case studies by Nishant Jha.",
     siteName: "Nishant Jha",
     locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - Founder's Office and AI automation portfolio" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - forward-deployed builder portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nishant Jha | Founder's Office & AI Automation Portfolio",
-    description: "Explore Nishant Jha's portfolio, AI automation projects, operations work, and resume.",
+    title: "Nishant Jha | Forward-Deployed Builder",
+    description: "Explore Nishant Jha's AI adoption, automation, analytics, and business systems work.",
     images: ["/opengraph-image"],
   },
   robots: {

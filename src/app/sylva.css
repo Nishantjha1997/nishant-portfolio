@@ -135,10 +135,7 @@ main { min-height: 100vh; }
 .sylva-work { color: var(--dark-ink); background: rgba(223,230,219,.56); }
 .sylva-section-head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .55fr); align-items: end; gap: 70px; margin-bottom: 54px; }
 .sylva-section-head > p { margin: 0 0 7px; color: #697166; font-size: 13px; font-weight: 300; line-height: 1.65; }
-.sylva-project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-.sylva-project-grid .project-card { grid-column: span 6; }
-.sylva-project-grid .project-card:nth-child(3n + 1) { grid-column: span 7; }
-.sylva-project-grid .project-card:nth-child(3n + 2) { grid-column: span 5; }
+.sylva-project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .project-card { min-height: 510px; border: 0; border-radius: 30px; color: var(--dark-ink); background: #f4f5ef; box-shadow: 0 18px 45px rgba(52,65,48,.1); }
 .project-card:hover { border: 0; box-shadow: 0 28px 60px rgba(52,65,48,.18); transform: translateY(-8px); }
 .card-topline { min-height: 58px; align-items: center; padding: 0 22px; color: #778075; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
@@ -158,7 +155,19 @@ main { min-height: 100vh; }
 .card-copy h3 { margin: 10px 0; font-size: clamp(24px, 2.4vw, 34px); font-weight: 350; letter-spacing: -.055em; }
 .card-copy > p:not(.eyebrow) { color: #697066; font-size: 12px; line-height: 1.6; }
 .tag-row { gap: 6px; margin-top: 18px; }
-.tag-row span { border-color: #ccd3c8; color: #6d756a; background: rgba(224,229,220,.5); }
+.tag-row span, .project-card:hover .tag-row span { border-color: #b8c5b2; color: #435140; background: rgba(224,229,220,.5); }
+.sylva-more-work-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin: 84px 0 25px; }
+.sylva-more-work-head h3 { margin: 9px 0 0; font-size: clamp(25px, 3vw, 38px); font-weight: 350; letter-spacing: -.05em; }
+.sylva-more-work-head > p { max-width: 360px; margin: 0; color: #697166; font-size: 12px; line-height: 1.6; }
+.sylva-more-work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px 22px; border-top: 1px solid #bdc9bb; }
+.sylva-more-work-item { display: grid; grid-template-columns: 34px minmax(0, 1fr) 20px; gap: 17px; align-items: start; min-height: 152px; padding: 23px 5px 24px; border-bottom: 1px solid #bdc9bb; transition: padding-left .2s ease, background .2s ease; }
+.sylva-more-work-item:hover, .sylva-more-work-item:focus-visible { padding-left: 12px; background: rgba(255,255,255,.28); }
+.sylva-more-work-item:focus-visible { outline: 2px solid #4c6744; outline-offset: -2px; }
+.sylva-more-work-item > span { padding-top: 4px; color: #748170; font-size: 10px; }
+.sylva-more-work-item p { margin: 0 0 5px; color: #73806e; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.sylva-more-work-item h4 { margin: 0 0 8px; font-size: 19px; font-weight: 450; letter-spacing: -.035em; }
+.sylva-more-work-item small { display: block; max-width: 440px; color: #657062; font-size: 11px; line-height: 1.55; }
+.sylva-more-work-item > b { font-size: 17px; font-weight: 400; }
 
 .sylva-experience-list { border-top: 1px solid #cfd5ca; }
 .sylva-experience-list article { display: grid; grid-template-columns: 120px 50px 1fr; gap: 24px; align-items: start; padding: 30px 0; border-bottom: 1px solid #cfd5ca; }
@@ -260,6 +269,10 @@ body:not(:has(.sylva-page)) main { position: relative; z-index: 1; padding-top: 
   .sylva-prose { padding-top: 0; }
   .sylva-project-grid { display: grid; grid-template-columns: 1fr; }
   .sylva-project-grid .project-card, .sylva-project-grid .project-card:nth-child(n) { grid-column: auto; min-height: 485px; }
+  .sylva-more-work-head { display: block; margin-top: 64px; }
+  .sylva-more-work-head > p { margin-top: 12px; }
+  .sylva-more-work-grid { grid-template-columns: 1fr; }
+  .sylva-more-work-item { min-height: 132px; }
   .sylva-experience-list article { grid-template-columns: 70px 34px 1fr; gap: 10px; }
   .capability-cards, .field-kit { grid-template-columns: 1fr; }
   .capability-cards article { min-height: 235px; }
