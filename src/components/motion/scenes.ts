@@ -15,6 +15,14 @@ const CLEAR = "transform,opacity,visibility,transition";
 
 type Targets = gsap.TweenTarget;
 
+/**
+ * Adds a viewport-specific block as a SIBLING matchMedia context (motion query is prepended by the
+ * caller). Never create a gsap.matchMedia() inside another one: reverting the outer context kills the
+ * inner one, which splices GSAP's global media list while GSAP is iterating it, so the next context
+ * in that list is skipped and never reverted (content stayed hidden after switching to reduced motion).
+ */
+export type MotionMedia = { add: (conditions: string | Record<string, string>, fn: (context: gsap.Context) => void | (() => void)) => void };
+
 const all = (selector: string, root: ParentNode = document) => Array.from(root.querySelectorAll<HTMLElement>(selector));
 
 function splitWords(element: Element) {
@@ -52,8 +60,13 @@ function revealHeading(heading: Element, vars: gsap.TweenVars = {}) {
 }
 
 /** Page-load entrance: staggers elements in order, splitting any h1 into words. */
+// Intro timelines of the scene being built; finished instantly when the scene is rebuilt
+// (e.g. reduced motion switched back off) so the page-load entrance doesn't replay.
+let introTimelines: gsap.core.Timeline[] = [];
+
 function intro(elements: Element[], delay = 0.15) {
   const tl = gsap.timeline({ defaults: { ease: EASE, duration: 0.9 }, delay });
+  introTimelines.push(tl);
   elements.forEach((element, index) => {
     const position = index === 0 ? 0 : "-=0.72";
     if (element.matches("h1")) {
@@ -90,10 +103,9 @@ function countUp(element: HTMLElement, trigger: Element) {
   };
 }
 
-function homeScene(main: HTMLElement) {
+function homeScene(main: HTMLElement, mm: MotionMedia) {
   const cleanups: Array<() => void> = [];
   const hero = main.querySelector(".sylva-hero");
-  const mm = gsap.matchMedia();
 
   // Hero entrance: copy first, then the floating specimen cards drift in.
   if (hero) {
@@ -287,8 +299,16 @@ function simpleScene(main: HTMLElement, selector: string, deferred: string) {
   all(deferred, page).forEach((group) => reveal(Array.from(group.children), group, { y: 40, stagger: 0.12 }));
 }
 
-export function runScene(pathname: string, main: HTMLElement) {
-  if (pathname === "/") return homeScene(main);
+export function runScene(pathname: string, main: HTMLElement, mm: MotionMedia, replay: boolean) {
+  introTimelines = [];
+  const cleanup = buildScene(pathname, main, mm);
+  if (replay) introTimelines.forEach((tl) => tl.progress(1));
+  introTimelines = [];
+  return cleanup;
+}
+
+function buildScene(pathname: string, main: HTMLElement, mm: MotionMedia) {
+  if (pathname === "/") return homeScene(main, mm);
   if (pathname.startsWith("/work/")) return projectScene(main);
   if (pathname === "/resume") return resumeScene(main);
   if (pathname === "/contact") return simpleScene(main, ".contact-page", ".contact-links");

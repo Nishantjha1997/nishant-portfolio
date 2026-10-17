@@ -48,10 +48,36 @@ export function SmoothScroll() {
       gsap.ticker.lagSmoothing(500, 33);
     };
 
-    const sync = () => {
+    // Last position the visitor scrolled to. Scroll events fire asynchronously, so when the
+    // motion preference changes this still holds the position from before GSAP's matchMedia
+    // revert/rebuild (pins and ScrollTrigger refreshes) reset the window to the top.
+    let lastY = window.scrollY;
+    let pendingY: number | null = null;
+    let restoreTimer: ReturnType<typeof setTimeout> | undefined;
+    const onScroll = () => {
+      if (pendingY === null) lastY = window.scrollY;
+    };
+    const restore = () => {
+      if (pendingY === null || Math.abs(window.scrollY - pendingY) < 1) return;
+      if (lenisRef.current) lenisRef.current.scrollTo(pendingY, { immediate: true, force: true });
+      else window.scrollTo(0, pendingY);
+    };
+
+    const sync = (event?: MediaQueryListEvent) => {
+      if (event) pendingY = lastY;
       if (reducedMotion.matches) stop();
       else start();
       ScrollTrigger.refresh();
+      if (!event) return;
+      // Keep the visitor where they were (instead of jumping to y=0) through every refresh the
+      // rebuilt scenes trigger, then go back to tracking normal scrolling.
+      restore();
+      clearTimeout(restoreTimer);
+      restoreTimer = setTimeout(() => {
+        restore();
+        pendingY = null;
+        lastY = window.scrollY;
+      }, 600);
     };
 
     // Smoothly scroll same-page hash links (e.g. "#work") with Lenis instead of a native jump.
@@ -78,12 +104,17 @@ export function SmoothScroll() {
 
     sync();
     reducedMotion.addEventListener("change", sync);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    ScrollTrigger.addEventListener("refresh", restore);
     window.addEventListener("click", onClick, { capture: true });
     window.addEventListener("popstate", onPopState);
     document.fonts?.ready.then(onFontsReady).catch(() => undefined);
 
     return () => {
       reducedMotion.removeEventListener("change", sync);
+      window.removeEventListener("scroll", onScroll);
+      ScrollTrigger.removeEventListener("refresh", restore);
+      clearTimeout(restoreTimer);
       window.removeEventListener("click", onClick, { capture: true });
       window.removeEventListener("popstate", onPopState);
       stop();
