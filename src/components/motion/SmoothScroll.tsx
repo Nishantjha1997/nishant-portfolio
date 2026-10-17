@@ -34,6 +34,21 @@ export function SmoothScroll() {
         prevent: (node) => node.nodeName === "TEXTAREA" || node.nodeName === "SELECT",
       });
       lenis.on("scroll", ScrollTrigger.update);
+      // Lenis marks a scroll event that didn't move the page (resize, a refresh, a same-position
+      // restore) as "native" scrolling but never clears it, leaving lenis-scrolling on <html>.
+      // Settle it once the page has been still for a moment.
+      let settleTimer: ReturnType<typeof setTimeout> | undefined;
+      lenis.on("scroll", () => {
+        clearTimeout(settleTimer);
+        if (lenis.isScrolling !== "native" || lenis.velocity !== 0) return;
+        settleTimer = setTimeout(() => {
+          if (lenisRef.current === lenis && lenis.isScrolling === "native" && lenis.velocity === 0) {
+            // scrollTo() to the current position is a no-op, and the isScrolling setter is private;
+            // Lenis's own reset() is what clears the state (it doesn't move the page).
+            (lenis as unknown as { reset: () => void }).reset();
+          }
+        }, 500);
+      });
       tick = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(tick);
       gsap.ticker.lagSmoothing(0);
