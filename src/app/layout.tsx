@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { ScrollMotion } from "@/components/ScrollMotion";
+import { PageMotion } from "@/components/motion/PageMotion";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import "./liquid-glass.css";
 import "./sylva.css";
+
+// Hides the first paint only until GSAP applies its from-states; never runs with reduced motion or without JS,
+// and a CSS failsafe in sylva.css reveals the page if the motion bundle never loads.
+const motionGuard = `if(window.matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("motion-pending")`;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
@@ -52,9 +58,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN">
+    <html lang="en-IN" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionGuard }} />
+      </head>
       <body>
-        <ScrollMotion />
+        <SmoothScroll />
+        <PageMotion />
         <SiteHeader />
         <main>{children}</main>
         <Analytics />

@@ -11,6 +11,7 @@ Public portfolio for Nishant Jha — Executive, Founder's Office at CallHippo, f
 - Working text-to-speech lab at `/labs/ai-tts`, using device-provided browser speech with voice, speed, pitch, pause, resume, stop, and script download controls.
 - Privacy-safe contact composer that opens a prefilled email draft without storing form contents.
 - Resume route and download with `X-Robots-Tag: noindex, noarchive`.
+- GSAP (ScrollTrigger, SplitText) motion with Lenis smooth scrolling, defined per route in `src/components/motion/`. Reduced-motion visitors get native scrolling and fully static content.
 - Responsive dark-first design with keyboard navigation, reduced-motion support, structured metadata, sitemap, robots rules, and project-specific case-study pages.
 
 ## Privacy and publication boundary
