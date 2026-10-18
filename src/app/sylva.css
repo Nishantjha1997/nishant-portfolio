@@ -293,3 +293,11 @@ body:not(:has(.sylva-page)) main { position: relative; z-index: 1; padding-top: 
   .sylva-page { background: radial-gradient(circle at 70% 8%, #56644e, transparent 35%), #30372e; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* GSAP + Lenis motion layer */
+html.lenis, html.lenis body { scroll-behavior: auto !important; }
+html.motion-pending main, html.motion-pending .site-header > * { opacity: 0; animation: motion-failsafe 0s linear 2.5s forwards; }
+@keyframes motion-failsafe { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  html.motion-pending main, html.motion-pending .site-header > * { opacity: 1; animation: none; }
+}
