@@ -12,6 +12,7 @@ export type Project = {
   details: { label: string; value: string }[];
   flow?: { label: string; value: string }[];
   flowDiagram?: boolean;
+  fleet?: { name: string; role: string; guardrail: string }[];
   caseStudy: {
     challenge: string;
     decisions: string[];
@@ -21,6 +22,269 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "grokbot-rollout",
+    updatedAt: "2026-11-11",
+    title: "GrokBot Rollout",
+    kicker: "Company-wide AI adoption",
+    summary: "Took AI agents from one idea to a company-wide practice: 20+ bots live across departments, 40+ people trained, and 80+ automations logged in one shared register.",
+    description: "I proposed GrokBot to leadership as a team of specialised work agents, then ran the rollout end to end: hands-on training, a reusable 'team of agents' setup, shared department-head bots, an internal adoption campaign, and a register that keeps every shared automation visible. The bots now cover business and data analytics, finance, SEO and marketing analytics, internal operations, and support.",
+    tags: ["AI adoption", "Agent teams", "Change management", "Training", "Automation governance"],
+    accent: "violet",
+    metric: "20+ bots · 40+ trained",
+    details: [
+      { label: "Role", value: "Rollout owner: evaluation, training, bot design, governance, and vendor escalation" },
+      { label: "Business question", value: "How do we turn repeat manual work in every department into bot work, without losing control of what the bots do?" },
+      { label: "Scale", value: "20+ bots live, 40+ people trained, 80+ shared automations logged with owner, schedule, and status" },
+      { label: "Impact", value: "Support and refund handling time down by about 90% with the Support Head and Refund bots" },
+    ],
+    flow: [
+      { label: "01", value: "Evaluate and pitch the agent model" },
+      { label: "02", value: "Train teams and share a setup prompt" },
+      { label: "03", value: "Publish shared department-head bots" },
+      { label: "04", value: "Register every automation and keep a human approval step" },
+    ],
+    flowDiagram: true,
+    fleet: [
+      { name: "Executive Assistant", role: "Front door and orchestrator: breaks work into tasks, hands them to the right specialist bot, and tracks progress.", guardrail: "Reports back to its owner; specialists do the work." },
+      { name: "Support Head", role: "Answers support and general company questions from the company knowledge library, with sources.", guardrail: "Cites the source so the answer can be checked." },
+      { name: "Refund bot", role: "Reviews refund requests against account usage and subscription history before a decision.", guardrail: "Recommends; a person approves the refund." },
+      { name: "Business Analyst", role: "Builds the Monday management report packs from dashboards and source sheets, with week-over-week analysis.", guardrail: "Sends a preview first; posts to leadership only after approval." },
+      { name: "Marketing & SEO leads", role: "Paid-ads scorecards, tracking health checks, negative-keyword audits, technical SEO audits, and SEO/AEO ideas.", guardrail: "Read-only: suggests changes, never edits the ad account." },
+      { name: "Finance & tax desk", role: "Deadline enforcement, billing and books audits, and tax compliance alerts for the finance team.", guardrail: "Flags and reminds; finance owners act." },
+      { name: "CH-Booking Agent", role: "Compares flight options across booking sites, presents two or three choices, and books the one picked.", guardrail: "Checks every detail against the request; payment always stays manual." },
+      { name: "Hunter Bot", role: "Collects public competitor complaints daily and drafts clearly disclosed replies for review.", guardrail: "Drafts only; nothing is posted without review." },
+    ],
+    caseStudy: {
+      challenge: "Every department had repeat manual work: weekly reports, audits, tracking checks, routine questions, and bookings. Individual AI chat licences helped people one at a time, but nothing was shared, scheduled, or visible to the rest of the company.",
+      decisions: [
+        "Pitched GrokBot to leadership as a team of specialised agents with distinct roles, not another chat tool.",
+        "Ran hands-on training sessions, then shared one setup prompt: an Executive Assistant bot leads a team of specialist bots, so each person could build their own team the same way.",
+        "Published shared Team Bots for department heads so a whole team uses the same bot, skills, and schedule instead of private copies.",
+        "Built a shared register of every team automation (bot, schedule, last and next run, where results go, status, and skill doc), collected by asking each person's lead bot to report its own automations.",
+        "Kept a human step in the loop: read-only checks, suggestions instead of changes, previews before posting, and manual payment.",
+        "Moved the non-technical team from Claude to Grok with a clear exception path for tool-building work, so licences followed real needs.",
+        "Ran an internal adoption campaign ('Today manual. Tomorrow Grokbot.') with 21 print-ready office danglers, and handled vendor plan and outage issues directly with the provider.",
+      ],
+      outcomes: [
+        "20+ bots live across business and data analytics, finance, SEO and marketing analytics, internal automation, and support.",
+        "40+ people trained to set up and run their own agent teams.",
+        "80+ shared automations logged with an owner, schedule, and status, so leadership can see what runs and where its results go.",
+        "Support and refund handling time cut by about 90%.",
+      ],
+      disclosure: "Bot links, prompts, skill docs, internal data, employee names, and system access details are not published. Figures are rounded.",
+    },
+  },
+  {
+    slug: "hippomeet",
+    updatedAt: "2026-11-11",
+    title: "HippoMeet",
+    kicker: "Sales demo scheduling platform",
+    summary: "A self-hosted scheduling platform that books sales demos straight from the website and routes each lead to the right sales team.",
+    description: "I customised and self-hosted an open-source scheduling platform for the sales team. Leads pick a slot from a demo form on the company website, and the booking is routed to the right team based on the lead's segment. Every sales rep can have their own hours for each event. I also set up the deployment so updates go live from the main branch.",
+    tags: ["Scheduling", "Lead routing", "Self-hosted", "Deployment", "Sales ops"],
+    accent: "blue",
+    metric: "Live for sales",
+    details: [
+      { label: "Role", value: "Product owner and builder: requirements, customisation, testing, and deployment" },
+      { label: "Business question", value: "Can a qualified lead book the right sales demo in one step, without back-and-forth?" },
+      { label: "Architecture", value: "Open-source scheduling platform, team events per sales segment, embedded demo form, and push-to-deploy" },
+    ],
+    flow: [
+      { label: "01", value: "Lead fills the embedded demo form" },
+      { label: "02", value: "Routing picks the right sales team event" },
+      { label: "03", value: "Lead books a slot in that rep's hours" },
+      { label: "04", value: "Confirmation and hand-off to sales" },
+    ],
+    flowDiagram: true,
+    caseStudy: {
+      challenge: "Demo booking was split across tools, team events weren't available for routing, and the booking form didn't fit inside the website on every screen.",
+      decisions: [
+        "Added per-rep hours for each event, so every sales rep keeps their own schedule without a shared calendar.",
+        "Made team events selectable in routing, so the lead-handover form sends each lead to the right segment's demo.",
+        "Rebuilt the demo form to fit the website frame on laptops, tablets, and phones, with tap-to-pick countries and a pinned booking button on mobile.",
+        "Fixed the post-booking redirect so leads land on a working thank-you page.",
+        "Moved the code to the company's repository and set up a one-command deploy with automatic database migrations and a health check.",
+      ],
+      outcomes: [
+        "Sales demos are booked from the website and routed to the right team in one flow.",
+        "Sales leadership can change each rep's hours themselves, without engineering help.",
+        "Updates ship with a repeatable deploy instead of manual server work.",
+      ],
+      disclosure: "Internal URLs, server details, routing rules, and lead data are not published.",
+    },
+  },
+  {
+    slug: "tools-hub",
+    updatedAt: "2026-11-11",
+    title: "Tools Hub",
+    kicker: "One home for internal tools",
+    summary: "One Google sign-in home for the company's internal tools, plus a step-by-step map of each automated workflow.",
+    description: "As the number of internal tools grew, people had to remember separate links and ask how each automation worked. Tools Hub puts them in one place behind company Google sign-in: revenue signals, purchase management, a talent console, the punctuality and compliance dashboard, demo scheduling, and knowledge-transfer capture. An Automated workflows section explains each process automation step by step, with its purpose.",
+    tags: ["Internal platform", "Google sign-in", "Workflow documentation", "Vercel"],
+    accent: "teal",
+    metric: "6 tools · 1 sign-in",
+    details: [
+      { label: "Role", value: "Builder and owner" },
+      { label: "Business question", value: "How do people find, trust, and understand the internal tools and automations they depend on?" },
+      { label: "Includes", value: "Signals, Purchase Manager, Talent Console, Punctuality & Compliance Dashboard, HippoMeet, and KT capture" },
+    ],
+    flow: [
+      { label: "01", value: "Sign in with company Google account" },
+      { label: "02", value: "Open any internal tool from one place" },
+      { label: "03", value: "Read how each automated workflow runs" },
+    ],
+    caseStudy: {
+      challenge: "Internal tools and automations were spread across separate links and scripts, so people struggled to find them, and nobody could easily see how an automation worked.",
+      decisions: [
+        "Kept access behind company Google sign-in instead of building separate logins.",
+        "Documented each automated workflow as plain steps with its purpose, next to the tools.",
+        "Hosted it where the team can deploy directly, without waiting on DevOps.",
+      ],
+      outcomes: [
+        "Six internal tools in one place.",
+        "A readable map of how each automation runs, for users and for whoever maintains it next.",
+      ],
+      disclosure: "Tool URLs, data, and access rules are not published.",
+    },
+  },
+  {
+    slug: "ai-builders-team",
+    updatedAt: "2026-11-11",
+    title: "AI Builders Team",
+    kicker: "Designing an AI-first team",
+    summary: "Set up an internal AI builders function: an agent team that prepares the ground, and a hiring process that only screens in people who have built things.",
+    description: "Before the first human AI builders joined, I set up an agent team with a written mission brief to find and size automation opportunities across the company. Alongside it I wrote the hiring guide, build-task tests, and interview approach for the human hires.",
+    tags: ["Team design", "Hiring", "Agent teams", "Opportunity discovery"],
+    accent: "amber",
+    metric: "Agents + people",
+    details: [
+      { label: "Role", value: "Function designer and hiring lead" },
+      { label: "Business question", value: "How do we hire people who can turn manual work into working automations, and give them a head start on day one?" },
+      { label: "Approach", value: "Agent team with a mission brief, a proof-of-work screen, and build-task assessments" },
+    ],
+    flow: [
+      { label: "01", value: "Agent team maps automation opportunities" },
+      { label: "02", value: "Screen candidates on work they've built" },
+      { label: "03", value: "Assess with a real build task and its AI chat history" },
+      { label: "04", value: "New hires start from a ready backlog" },
+    ],
+    caseStudy: {
+      challenge: "Job titles and certificates said little about whether someone could actually build useful automations, and new hires would otherwise spend their first weeks just finding the work.",
+      decisions: [
+        "Wrote a mission brief for an agent team to find and size automation opportunities, so human hires start with a ready backlog.",
+        "Set a hiring rule: screen in side projects, hackathon builds, and automations with results; screen out profiles that only list certificates or prompt-engineering titles.",
+        "Designed build-task tests (for example, a call-insights tool from sample transcripts), with AI tools allowed and the candidate's AI chat history reviewed as part of the assessment.",
+        "Asked candidates for a first-week plan: shadow the team, document steps and time, set a baseline, and confirm findings with process owners.",
+        "Required each automation proposal to be measured against its business impact before build effort is spent.",
+      ],
+      outcomes: [
+        "A repeatable way to hire for building ability rather than titles.",
+        "A backlog of sized opportunities ready for new builders from day one.",
+      ],
+      disclosure: "Candidate details, interview transcripts, and internal opportunity lists are not published.",
+    },
+  },
+  {
+    slug: "revenue-churn-signals",
+    updatedAt: "2026-11-11",
+    title: "Revenue & Churn Signals",
+    kicker: "Commercial early warnings",
+    summary: "Spotted at-risk paying accounts before renewal and designed a controlled way to measure the real effect of a price change.",
+    description: "Using account usage and billing data, I flagged paying accounts whose usage had dropped far below what they pay for, and the upsell renewals that needed a conversation before they renewed. For a planned price change, I designed a test with a control group so the team could see the real effect in real time and be sure it came from the price.",
+    tags: ["Churn risk", "Usage analysis", "Pricing experiment", "Revenue"],
+    accent: "green",
+    metric: "~$10K MRR flagged",
+    details: [
+      { label: "Role", value: "Analyst and decision owner for the alert; experiment designer" },
+      { label: "Business question", value: "Which paying customers are likely to churn, and how do we know a price change is what moved the numbers?" },
+      { label: "Finding", value: "Six low-usage paying accounts above a set revenue floor, about $10K MRR combined, flagged before renewal" },
+    ],
+    flow: [
+      { label: "01", value: "Compare usage with what each account pays" },
+      { label: "02", value: "Flag low-usage and renewal-window accounts" },
+      { label: "03", value: "Hand the list to account owners with a deadline" },
+      { label: "04", value: "Test price changes against a control group" },
+    ],
+    caseStudy: {
+      challenge: "Churn usually showed up only after a customer left, and pricing changes were judged on numbers that could have moved for other reasons.",
+      decisions: [
+        "Only included accounts above a set revenue floor so the team focused on what mattered most.",
+        "Asked account owners to confirm the data before acting, and set clear deadlines tied to renewal dates.",
+        "Designed the price test with a control group (new pricing for one group first, compared with a similar group on the old price) to separate the price effect from noise.",
+      ],
+      outcomes: [
+        "About $10K MRR of at-risk revenue put in front of account owners before renewal.",
+        "A test design that lets leadership judge a price change on evidence, not on one or two numbers.",
+      ],
+      disclosure: "Customer names, exact revenue figures, and pricing details are not published. Figures are rounded.",
+    },
+  },
+  {
+    slug: "ai-video-ad-pipeline",
+    updatedAt: "2026-11-11",
+    title: "AI Video Ad Pipeline",
+    kicker: "Bulk ad creative in two clicks",
+    summary: "A two-click pipeline that generates ad ideas, then turns the chosen ones into short social video ads for every product launch.",
+    description: "The first click generates ad ideas; the second turns them into videos. The team picks which ones to run, so launches get a steady supply of creative to test instead of waiting on one or two hand-made ads.",
+    tags: ["Generative video", "Marketing automation", "Ad creative"],
+    accent: "violet",
+    metric: "Ideas → videos",
+    details: [
+      { label: "Role", value: "Builder; handover to the AI team" },
+      { label: "Business question", value: "Can every launch ship with many ad variations to test, quickly?" },
+      { label: "Constraint", value: "Video generation needs GPU hardware, so the pipeline is scoped for a dedicated machine" },
+    ],
+    flow: [
+      { label: "01", value: "Generate ad ideas" },
+      { label: "02", value: "Generate videos from the picked ideas" },
+      { label: "03", value: "Team selects which ads to run" },
+    ],
+    caseStudy: {
+      challenge: "Each launch had only a few hand-made ads, which limited how much the team could test.",
+      decisions: [
+        "Split the pipeline into two steps so people choose ideas before spending compute on video.",
+        "Kept the final choice of which ads to run with the team.",
+      ],
+      outcomes: [
+        "A repeatable way to produce bulk ad variations for each launch.",
+        "A clear hardware requirement and handover plan for the AI team.",
+      ],
+      disclosure: "Prompts, model setup, and unreleased creative are not published.",
+    },
+  },
+  {
+    slug: "competitor-talent-map",
+    updatedAt: "2026-11-11",
+    title: "Competitor Talent Map",
+    kicker: "Recruiting from a mapped talent pool",
+    summary: "A talent map and console that lets the hiring team reach proven people at competitor companies as soon as a matching role opens.",
+    description: "I scoped a pilot to map India-based sales and customer success people at competitor companies, sorted into tiers, and built an internal console the talent acquisition team uses to reach the right people when a matching role opens.",
+    tags: ["Talent acquisition", "Data sourcing", "Internal tool"],
+    accent: "teal",
+    metric: "Pilot: sales & CS",
+    details: [
+      { label: "Role", value: "Project owner: scope, data sourcing plan, and tool" },
+      { label: "Business question", value: "Can we reach experienced people the moment a role opens, instead of starting every search from zero?" },
+      { label: "Scope", value: "India-based Sales (SDR, BDR, inside sales, AE, managers) and Customer Success / Support, starting with Tier 1 companies" },
+    ],
+    flow: [
+      { label: "01", value: "Tier competitor companies" },
+      { label: "02", value: "Map people in matching roles" },
+      { label: "03", value: "Reach out when a role opens" },
+    ],
+    caseStudy: {
+      challenge: "Every new role started a fresh search, even though people with directly relevant experience worked at known competitor companies.",
+      decisions: [
+        "Started with a narrow pilot (two functions, one country, Tier 1 companies) before widening.",
+        "Gave the talent acquisition team a console instead of a static spreadsheet.",
+      ],
+      outcomes: [
+        "A ready talent pool for the most frequent sales and support roles.",
+      ],
+      disclosure: "Company lists, people data, and sourcing methods are not published.",
+    },
+  },
   {
     slug: "flowcreate",
     title: "MakeCV — FlowCreate",

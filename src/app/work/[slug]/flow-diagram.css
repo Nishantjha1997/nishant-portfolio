@@ -36,3 +36,9 @@
   border-radius: 50%;
   font-weight: 700;
 }
+
+/* Bot fleet: one row per bot, with the human check it keeps underneath. */
+.case-fleet { margin: 0 0 38px; }
+.case-fleet .section-index { margin: 0 0 14px; }
+.case-fleet .detail-facts { margin-bottom: 0; }
+.case-fleet .detail-facts small { display: block; margin-top: 6px; color: var(--coral); font-size: 11px; }

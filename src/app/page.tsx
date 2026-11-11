@@ -9,36 +9,37 @@ import { projectBySlug, projects } from "@/data/projects";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
-  title: "Nishant Jha in Ahmedabad | Forward-Deployed Builder",
-  description: "Nishant Jha is a forward-deployed builder in Ahmedabad. Explore end-to-end AI adoption, automation, business intelligence, analytics, and process improvement work.",
+  title: "Nishant Jha in Ahmedabad | AI Adoption Lead & Forward-Deployed Builder",
+  description: "Nishant Jha leads AI adoption and builds internal systems in Ahmedabad: 20+ AI bots live across departments, 40+ people trained, plus automation, business intelligence, and process improvement work.",
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
 
 const impact = [
-  { value: "24h → 30m", label: "Eligible access turnaround" },
-  { value: "95%", label: "Fewer lock collisions" },
-  { value: "25%", label: "CSAT improvement" },
-  { value: "100+", label: "New hires supported" },
+  { value: "20+", label: "AI bots live across departments" },
+  { value: "40+", label: "People trained to run agent teams" },
+  { value: "80+", label: "Shared automations in the register" },
+  { value: "90%", label: "Less time on support & refund handling" },
 ];
 
 const experience = [
-  { period: "Now", title: "Executive, Founder's Office", company: "CallHippo", summary: "Work with leadership and technical teams to frame problems, build internal systems, and help teams adopt them." },
+  { period: "Now", title: "Executive, Founder's Office", company: "CallHippo", summary: "Lead company-wide AI adoption: 20+ bots live, 40+ people trained, and 80+ shared automations. Also build internal systems such as demo scheduling, a tools hub, and revenue signals." },
   { period: "Previous", title: "Executive Assistant to CEO", company: "Sigma Solve", summary: "Built leadership reporting, operating rhythms, dashboards, process improvements, and cross-functional automations." },
   { period: "2024—25", title: "IT Trainer", company: "Vagaro Technologies", summary: "Delivered product training and documentation while supporting SDLC coordination and team mentoring." },
   { period: "2020—24", title: "Customer Support Representative & SME", company: "TTEC India", summary: "Improved support processes and enabled onboarding, software adoption, and subject-matter excellence." },
 ];
 
 const strengths = [
+  "Company-wide AI adoption and training",
+  "Agent teams and bot automation design",
   "Problem discovery and requirements",
   "End-to-end, AI-assisted product delivery",
-  "Safe AI adoption and automation",
   "Data analysis and decision dashboards",
   "Process design, SOPs, and handover",
   "Deployment, integrations, and release checks",
 ];
 
-const featuredSlugs = ["gitlab-access-automation", "lead-cleanup", "ask-callhippo", "sales-meeting-punctuality"];
+const featuredSlugs = ["grokbot-rollout", "hippomeet", "tools-hub", "gitlab-access-automation"];
 const featuredProjects = featuredSlugs.map((slug) => projectBySlug[slug]);
 const moreProjects = projects.filter((project) => !featuredSlugs.includes(project.slug));
 
@@ -67,9 +68,9 @@ export default function HomePage() {
 
       <section className="sylva-hero page-shell" id="home">
         <div className="sylva-hero-copy">
-          <p className="sylva-kicker"><span /> Forward-deployed builder · Ahmedabad</p>
+          <p className="sylva-kicker"><span /> AI adoption lead · Forward-deployed builder · Ahmedabad</p>
           <h1>Nishant Jha.<br /><em>I turn messy problems into working systems.</em></h1>
-          <p className="sylva-lede">I work beside the teams who feel the problem, then design, build, and help roll out the fix. My work spans AI adoption, automation, business intelligence, and the processes that make a solution stick.</p>
+          <p className="sylva-lede">I work beside the teams who feel the problem, then design, build, and help roll out the fix. At CallHippo I turned AI agents into a company-wide practice, with 20+ bots doing work that used to be manual. My work also spans automation, business intelligence, and the processes that make a solution stick.</p>
           <div className="sylva-actions">
             <Link className="sylva-button sylva-button-dark glass-button" href="#work"><span aria-hidden="true">☰</span> See the proof</Link>
             <a className="sylva-button sylva-button-light glass-button" href="/api/resume" download>Download résumé <span aria-hidden="true">↓</span></a>
@@ -86,8 +87,8 @@ export default function HomePage() {
           </article>
           <article className="field-note sylva-float-card">
             <p>Current field note</p>
-            <h2>From a rough brief to a usable workflow.</h2>
-            <span>Across business and engineering</span>
+            <h2>Busy work is now bot work.</h2>
+            <span>20+ bots · 80+ automations</span>
           </article>
           <div className="hero-metric hero-metric-one"><span>Case studies</span><strong>{projects.length} across product &amp; operations</strong></div>
           <div className="hero-metric hero-metric-two"><span>How I work</span><strong>Discover → build → adopt</strong></div>
@@ -101,7 +102,7 @@ export default function HomePage() {
       <section className="sylva-section sylva-surface glass-surface" id="about">
         <div className="page-shell sylva-about-grid">
           <div><p className="sylva-index">01 / ABOUT</p><h2>Close to the problem.<br /><em>Close to the build.</em></h2></div>
-          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office operator with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>I use Claude Code and Codex to build quickly, while owning the requirements, architecture, integrations, and pre-deployment checks. I stay close to adoption, exceptions, ownership, and handover so the result works in daily use.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
+          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office operator with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>Lately that means bot armies: I trained 40+ colleagues to run their own agent teams and published shared bots for each department, each with a human check built in.</p><p>I use Claude Code and Codex to build quickly, while owning the requirements, architecture, integrations, and pre-deployment checks. I stay close to adoption, exceptions, ownership, and handover so the result works in daily use.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
         </div>
       </section>
 

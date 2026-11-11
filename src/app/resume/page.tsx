@@ -4,12 +4,12 @@ import Link from "next/link";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nishant Jha Resume | Forward-Deployed Builder" },
+  title: { absolute: "Nishant Jha Resume | AI Adoption Lead & Forward-Deployed Builder" },
   description: "Nishant Jha's resume: end-to-end AI adoption, automation, business intelligence, process improvement, and Founder's Office work in Ahmedabad.",
   alternates: { canonical: "/resume" },
   openGraph: {
     url: "/resume",
-    title: "Nishant Jha Resume | Forward-Deployed Builder",
+    title: "Nishant Jha Resume | AI Adoption Lead & Forward-Deployed Builder",
     description: "Experience and selected work across AI adoption, automation, analytics, and operational delivery.",
   },
 };
@@ -20,9 +20,12 @@ const experience = [
     title: "Executive, Founder's Office",
     company: "CallHippo",
     details: [
-      "Partner with leadership, operations, and engineering to turn business needs into requirements, internal tools, and reviewable workflows.",
-      "Own knowledge structure and assistant behavior for source-backed internal answers, working with the technical team on implementation and hosting.",
-      "Design evidence-led meeting reviews and a pre-launch purchase platform with clear ownership, audit records, and human checks.",
+      "Lead company-wide AI adoption on GrokBot: 20+ bots live across analytics, finance, SEO and marketing, internal operations, and support; 40+ people trained to run their own agent teams.",
+      "Built a shared register of 80+ team automations (owner, schedule, status, where results go) and kept a human approval step in every bot that acts.",
+      "Cut support and refund handling time by about 90% with the Support Head and Refund bots, which answer from cited company knowledge and check account history before a decision.",
+      "Built and shipped HippoMeet (website demo booking with sales-team routing) and Tools Hub (one sign-in home for six internal tools and their workflow maps).",
+      "Flagged about $10K MRR of at-risk paying accounts before renewal and designed a controlled price-change test; set up hiring and an agent team for a new AI builders function.",
+      "Partner with leadership, operations, and engineering on source-backed internal answers, evidence-led meeting reviews, and a purchase platform with audit records and human checks.",
     ],
   },
   {
@@ -61,6 +64,7 @@ const experience = [
 ];
 
 const skills = [
+  "Company-wide AI adoption, training, and agent-team design",
   "Problem discovery and stakeholder alignment",
   "AI-assisted implementation with Claude Code and Codex",
   "Architecture, integration, and generated-code review",
@@ -98,7 +102,7 @@ export default function ResumePage() {
       <Link className="back-link" href="/">← Back home</Link>
       <p className="eyebrow">NISHANT JHA / RESUME</p>
       <h1>Nishant Jha <em>Resume.</em></h1>
-      <p className="detail-summary">Forward-deployed builder and Founder&apos;s Office professional in Ahmedabad. I use Claude Code and Codex to implement business tools, then review the architecture, integrations, and release checks before deployment.</p>
+      <p className="detail-summary">AI adoption lead, forward-deployed builder, and Founder&apos;s Office professional in Ahmedabad. I use Claude Code and Codex to implement business tools, then review the architecture, integrations, and release checks before deployment.</p>
 
       <div className="resume-panel">
         <div><span className="file-mark">PDF</span><div><strong>Nishant Jha — Resume</strong><p>Business problem → working system → adoption</p></div></div>
@@ -131,6 +135,7 @@ export default function ResumePage() {
         <p className="section-index">03 / SELECTED IMPACT</p>
         <h2 id="resume-projects">What the work changed</h2>
         <ul>
+          <li><strong>AI adoption:</strong> rolled out GrokBot across CallHippo with 20+ bots live, 40+ people trained, and 80+ shared automations tracked in one register; support and refund handling time fell by about 90%.</li>
           <li><strong>GitLab access:</strong> connected HR, project-assignment, and repository checks in an auditable approval workflow, moving normal eligible requests from up to 24 hours to a maximum 30-minute processing window.</li>
           <li><strong>Early AI adoption:</strong> identified a Lead Cleanup use case on Jev AI&apos;s second day after launch and integrated suggestions into an existing qualification flow, with deterministic rules and human review controlling decisions.</li>
           <li><strong>Operational visibility:</strong> brought workload, delivery signals, and meeting join evidence into reviewable dashboards so leaders can see capacity risk and reviewers can separate a client wait from missing attendance data.</li>

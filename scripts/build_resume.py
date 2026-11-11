@@ -8,7 +8,6 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.platypus import (
     KeepTogether,
-    PageBreak,
     Paragraph,
     SimpleDocTemplate,
     Spacer,
@@ -25,7 +24,7 @@ styles = {
     "name": ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=25, leading=29, textColor=INK),
     "subtitle": ParagraphStyle("subtitle", fontName="Helvetica", fontSize=11, leading=15, textColor=GREEN),
     "contact": ParagraphStyle("contact", fontName="Helvetica", fontSize=8.5, leading=13, textColor=MUTED),
-    "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9, leading=13, textColor=GREEN, spaceBefore=17, spaceAfter=7),
+    "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9, leading=13, textColor=GREEN, spaceBefore=13, spaceAfter=6),
     "role": ParagraphStyle("role", fontName="Helvetica-Bold", fontSize=10, leading=14, textColor=INK, spaceBefore=8),
     "body": ParagraphStyle("body", fontName="Helvetica", fontSize=8.9, leading=13.8, textColor=INK, spaceAfter=4),
     "bullet": ParagraphStyle("bullet", fontName="Helvetica", fontSize=8.9, leading=13.8, textColor=INK, leftIndent=12, bulletIndent=1, spaceAfter=5),
@@ -62,7 +61,7 @@ def footer(canvas, doc):
 
 story = [
     p("Nishant Jha", "name"),
-    p("Forward-deployed builder  |  Founder's Office  |  AI and automation", "subtitle"),
+    p("AI adoption lead  |  Forward-deployed builder  |  Founder's Office", "subtitle"),
     Spacer(1, 5 * mm),
     p("Ahmedabad, India  |  nishant@nishant.top  |  +91 82104 99970", "contact"),
     p("Alternative: nishantjha31@gmail.com  |  Portfolio: nishant.top  |  GitHub: github.com/Nishantjha1997", "contact"),
@@ -70,30 +69,26 @@ story = [
     p("Founder's Office professional and AI-assisted builder who turns business needs into working systems. I gather requirements with stakeholders, map the workflow and data, build automations, dashboards, and internal tools, and support adoption through documentation, review paths, and handover."),
     p("My work spans executive operations, safe AI adoption, process improvement, and full-stack products. I translate between leadership and technical teams while keeping decisions traceable and useful in daily work."),
     section("Selected impact"),
+    bullet("<b>Company-wide AI adoption:</b> Rolled out GrokBot agent teams across CallHippo: 20+ bots live across analytics, finance, SEO and marketing, operations, and support; 40+ people trained; 80+ shared automations tracked with owner, schedule, and status. Support and refund handling time fell by about 90%."),
     bullet("<b>GitLab access:</b> Connected HR, project-assignment, and GitLab checks in an auditable approval workflow. Normal eligible requests moved from up to 24 hours to a maximum 30-minute processing window; elevated permissions still require approval."),
     bullet("<b>Early AI adoption:</b> On Jev AI's second day after launch, identified lead qualification as a practical use case and integrated AI suggestions into an existing contact-cleanup process. Clear cases follow deterministic rules; ambiguous leads stay in a human review queue with an audit trail."),
-    bullet("<b>Operational visibility:</b> Built dashboards that bring workload, delivery signals, and meeting join evidence into reviewable views. Leaders and reviewers can see capacity risk and distinguish a client waiting from incomplete attendance data."),
     section("Professional experience"),
 ]
 
 story += [
     KeepTogether([
         p("Executive, Founder's Office  |  CallHippo  |  Current", "role"),
-        bullet("Partner with leadership, operations, and engineering to turn business needs into requirements, internal tools, and reviewable workflows."),
-        bullet("Owned knowledge structure and assistant behavior for source-backed internal answers; worked with the technical team on server implementation and hosting."),
-        bullet("Designed an evidence-led sales meeting review and a pre-launch purchase platform with clear ownership, audit records, and human checks."),
+        bullet("Lead company-wide AI adoption: trained 40+ people, published shared department-head bots, and built a register of 80+ team automations with a human approval step in every bot that acts."),
+        bullet("Built the Support Head and Refund bots (cited answers; account-history checks before refunds), cutting handling time by about 90%."),
+        bullet("Built and shipped HippoMeet (website demo booking with sales-team routing) and Tools Hub (one sign-in home for six internal tools)."),
+        bullet("Flagged about $10K MRR of at-risk accounts before renewal, designed a controlled price-change test, and set up hiring and an agent team for a new AI builders function."),
+        bullet("Also delivered source-backed internal answers, an evidence-led sales meeting review, and a purchase platform with audit records and human checks."),
     ]),
-    KeepTogether([
-        p("Executive Assistant to CEO, Founder's Office  |  Sigma Solve  |  Previous role", "role"),
-        bullet("Acted as the CEO's operational right hand, owning priorities and cross-functional follow-through across engineering, delivery, HR, and leadership; supported business-transformation work from intake to closure."),
-        bullet("Gathered, analyzed, and documented business requirements, prepared executive briefings and leadership updates, and drove decisions and action items to closure across departments."),
-        bullet("Built and maintained workload dashboards, operational reports, and activity logs that gave leadership real-time visibility into capacity, assignments, and delivery risk."),
-        bullet("Standardized operating processes, SOPs, and Statements of Work; monitored efficiency and recommended improvements that clarified scope between business and engineering."),
-    ]),
-    PageBreak(),
-    p("Nishant Jha  |  Experience and selected work", "subtitle"),
-    section("Professional experience (continued)"),
-    p("Executive Assistant to CEO  |  Sigma Solve (continued)", "role"),
+    p("Executive Assistant to CEO, Founder's Office  |  Sigma Solve  |  Previous role", "role"),
+    bullet("Acted as the CEO's operational right hand, owning priorities and cross-functional follow-through across engineering, delivery, HR, and leadership; supported business-transformation work from intake to closure."),
+    bullet("Gathered, analyzed, and documented business requirements, prepared executive briefings and leadership updates, and drove decisions and action items to closure across departments."),
+    bullet("Built and maintained workload dashboards, operational reports, and activity logs that gave leadership real-time visibility into capacity, assignments, and delivery risk."),
+    bullet("Standardized operating processes, SOPs, and Statements of Work; monitored efficiency and recommended improvements that clarified scope between business and engineering."),
     bullet("Designed and deployed automation across HR systems, Asana, Gmail, Google Sheets, and GitLab, with monitoring, retries, and escalation to reduce manual work and keep records in sync."),
     bullet("Ran the cadence of meetings, reviews, and stakeholder communications; coordinated day-to-day operations and acted as liaison to clients and partners."),
     KeepTogether([
@@ -109,8 +104,9 @@ story += [
         bullet("Served as a subject-matter expert on software tools."),
     ]),
     section("Selected projects"),
+    bullet("<b>GrokBot rollout and bot fleet:</b> Executive Assistant orchestrator, Support Head, Refund, Business Analyst (report packs posted only after approval), read-only marketing and SEO audit bots, finance deadline bots, and a booking agent that never handles payment."),
+    bullet("<b>HippoMeet and Tools Hub:</b> Self-hosted demo scheduling with per-rep hours and team routing; one Google sign-in home for internal tools and workflow maps."),
     bullet("<b>Lead Cleanup:</b> Built a contact qualification flow for CSV and XLSX exports with duplicate checks, explainable rules, provisional Jev AI suggestions, and a reviewer queue before outreach export."),
-    bullet("<b>Ask CallHippo:</b> Organized approved knowledge and source checks so employees can find routine company answers with citations they can verify."),
     bullet("<b>Sales Meeting Punctuality:</b> Combined scheduled meeting times with measured join evidence in a reviewer dashboard; uncertain records remain unverified rather than becoming performance findings."),
     bullet("<b>Purchase Management:</b> Built a pre-launch request-to-payment workflow with role-based approvals, audit records, and purchase-order, receipt, and invoice matching."),
     bullet("<b>Independent products:</b> Built MakeCV, StreamFree, and YT Transcriber across AI-assisted workflows, responsive web experiences, and resilient data extraction."),
@@ -127,7 +123,7 @@ story += [
 doc = SimpleDocTemplate(
     str(OUTPUT), pagesize=A4, rightMargin=19 * mm, leftMargin=19 * mm,
     topMargin=18 * mm, bottomMargin=23 * mm, title="Nishant Jha Resume",
-    author="Nishant Jha", subject="Forward-deployed builder and Founder's Office resume",
+    author="Nishant Jha", subject="AI adoption lead, forward-deployed builder, and Founder's Office resume",
 )
 doc.build(story, onFirstPage=footer, onLaterPages=footer)
 print(OUTPUT)
