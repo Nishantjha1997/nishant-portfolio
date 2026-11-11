@@ -50,6 +50,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <p className="detail-description">{project.description}</p>
           <div className="detail-facts">{project.details.map((detail) => <div key={detail.label}><span>{detail.label}</span><strong>{detail.value}</strong></div>)}</div>
           {project.flow && <div className={`case-flow${project.flowDiagram ? " case-flow-diagram" : ""}`}><p className="section-index">THE OPERATING FLOW</p>{project.flow.map((step) => <div className="case-flow-step" key={step.label}><span>{step.label}</span><strong>{step.value}</strong></div>)}</div>}
+          {project.fleet && <section className="case-fleet" aria-labelledby="case-fleet-heading"><p className="section-index" id="case-fleet-heading">THE BOT FLEET</p><div className="detail-facts">{project.fleet.map((bot) => <div key={bot.name}><span>{bot.name}</span><strong>{bot.role}<small>{bot.guardrail}</small></strong></div>)}</div></section>}
           <section className="case-study" aria-labelledby="case-study-heading">
             <p className="section-index" id="case-study-heading">CASE STUDY</p>
             <div className="case-block"><h2>The challenge</h2><p>{project.caseStudy.challenge}</p></div>

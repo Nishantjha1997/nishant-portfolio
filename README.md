@@ -1,11 +1,11 @@
 # Nishant Jha Portfolio
 
-Public portfolio for Nishant Jha — Executive, Founder's Office at CallHippo, focused on executive operations, AI-enabled automation, and reliable cross-functional delivery.
+Public portfolio for Nishant Jha — Executive, Founder's Office at CallHippo, focused on company-wide AI adoption, AI-enabled automation, and reliable cross-functional delivery.
 
 ## What is included
 
 - Recruiter-focused homepage with verified experience, operating strengths, and measurable outcomes.
-- Detailed, sanitized case studies for MakeCV — FlowCreate, StreamFree, YT Transcriber, GitLab Access Automation, Claude Usage Uploader, My Fitness Blueprint, and Operations Insights.
+- Detailed, sanitized case studies, led by the company-wide GrokBot rollout (with a bot-fleet section showing each bot's role and human check), HippoMeet, Tools Hub, AI Builders Team, Revenue & Churn Signals, AI Video Ad Pipeline, and Competitor Talent Map, plus MakeCV — FlowCreate, StreamFree, YT Transcriber, GitLab Access Automation, Claude Usage Uploader, My Fitness Blueprint, Operations Insights, and earlier CallHippo work.
 - A public profile portrait in the homepage hero and Person structured metadata. Personal phone details remain excluded from the public HTML.
 - A beta YT Transcriber link beside Labs and a project case study at `/work/yt-transcriber`.
 - Working text-to-speech lab at `/labs/ai-tts`, using device-provided browser speech with voice, speed, pitch, pause, resume, stop, and script download controls.
