@@ -10,6 +10,7 @@ export function SiteHeader() {
       </Link>
       <nav className="top-nav" aria-label="Primary navigation">
         <Link href="/#about"><span aria-hidden="true">⌁</span> About</Link>
+        <Link href="/#bots"><span aria-hidden="true">✦</span> Bots</Link>
         <Link href="/#work"><span aria-hidden="true">⌘</span> Work</Link>
         <Link href="/#experience"><span aria-hidden="true">◇</span> Experience</Link>
         <Link href="/resume"><span aria-hidden="true">▤</span> Résumé</Link>

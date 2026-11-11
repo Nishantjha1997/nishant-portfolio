@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { BotArmy } from "@/components/BotArmy";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SylvaPortfolio } from "@/components/SylvaPortfolio";
 import { projectBySlug, projects } from "@/data/projects";
@@ -106,9 +107,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      <BotArmy />
+
       <section className="sylva-section sylva-work glass-surface" id="work">
         <div className="page-shell">
-          <div className="sylva-section-head"><div><p className="sylva-index">02 / SELECTED WORK</p><h2>Useful change,<br /><em>built end to end.</em></h2></div><p>Four examples of how I turn friction into a working tool, a clearer decision, or a process a team can trust.</p></div>
+          <div className="sylva-section-head"><div><p className="sylva-index">03 / SELECTED WORK</p><h2>Useful change,<br /><em>built end to end.</em></h2></div><p>Four examples of how I turn friction into a working tool, a clearer decision, or a process a team can trust.</p></div>
           <div className="sylva-project-grid">{featuredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}</div>
           <div className="sylva-more-work-head"><div><p className="sylva-index">MORE WORK</p><h3>More ways I&apos;ve put ideas to work.</h3></div><p>Products, internal systems, research, and decision tools. Each links to the problem, approach, and outcome.</p></div>
           <div className="sylva-more-work-grid">{moreProjects.map((project, index) => <Link className="sylva-more-work-item" href={`/work/${project.slug}`} key={project.slug}><span>{String(index + featuredProjects.length + 1).padStart(2, "0")}</span><div><p>{project.kicker}</p><h4>{project.title}</h4><small>{project.summary}</small></div><b aria-hidden="true">↗</b></Link>)}</div>
@@ -117,14 +120,14 @@ export default function HomePage() {
 
       <section className="sylva-section sylva-surface glass-surface" id="experience">
         <div className="page-shell">
-          <div className="sylva-section-head"><div><p className="sylva-index">03 / EXPERIENCE</p><h2>A career built around <em>useful change.</em></h2></div><p>Operations gave me the context; building gave me a way to remove the friction I could see.</p></div>
+          <div className="sylva-section-head"><div><p className="sylva-index">04 / EXPERIENCE</p><h2>A career built around <em>useful change.</em></h2></div><p>Operations gave me the context; building gave me a way to remove the friction I could see.</p></div>
           <div className="sylva-experience-list">{experience.map((item, index) => <article key={`${item.company}-${item.title}`}><span>{item.period}</span><b>{String(index + 1).padStart(2, "0")}</b><div><p>{item.company}</p><h3>{item.title}</h3><small>{item.summary}</small></div></article>)}</div>
         </div>
       </section>
 
       <section className="sylva-section sylva-capabilities">
         <div className="page-shell">
-          <p className="sylva-index">04 / FIELD KIT</p>
+          <p className="sylva-index">05 / FIELD KIT</p>
           <div className="sylva-section-head"><h2>How I turn intent<br />into <em>execution.</em></h2><p>Fast delivery matters when the result is useful in the real workflow.</p></div>
           <div className="capability-cards"><article><span>01 / DISCOVER</span><h3>Find the real bottleneck</h3><p>Work with users and leaders to map the decision, the data, and where the current process fails.</p></article><article><span>02 / BUILD</span><h3>Ship the smallest useful system</h3><p>Build an app, automation, dashboard, or decision model that answers the business question.</p></article><article><span>03 / ADOPT</span><h3>Make it part of the work</h3><p>Handle exceptions, document ownership, and refine the tool from what people actually see.</p></article></div>
           <div className="field-kit"><article><p>Operating strengths</p><ul>{strengths.map((strength) => <li key={strength}>{strength}</li>)}</ul></article><article><p>Credentials</p><ul>{credentials.map((credential) => <li key={credential}>{credential}</li>)}</ul></article></div>
@@ -132,7 +135,7 @@ export default function HomePage() {
       </section>
 
       <section className="sylva-contact page-shell" id="contact">
-        <p className="sylva-index">05 / NEXT FIELD NOTE</p>
+        <p className="sylva-index">06 / NEXT FIELD NOTE</p>
         <h2>Need someone who can<br /><em>find it and build it?</em></h2>
         <p>I&apos;m interested in roles where business context, practical engineering, and fast learning meet. Tell me what needs to change.</p>
         <div className="sylva-actions"><Link className="sylva-button sylva-button-light glass-button" href="/contact">Start a conversation <span>↗</span></Link><a className="sylva-button sylva-button-ghost glass-button" href="https://www.linkedin.com/in/nishant-jha-059828104/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div>

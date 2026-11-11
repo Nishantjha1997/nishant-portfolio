@@ -159,6 +159,28 @@ function homeScene(main: HTMLElement, mm: MotionMedia) {
     });
   }
 
+  // Bot army: hub drops in, department cards fan out, then the stats count, grow, and fill.
+  const army = main.querySelector(".bot-army");
+  if (army) {
+    const hub = army.querySelector(".bot-hub");
+    if (hub) reveal(hub, hub, { y: 30, scale: 0.97 });
+    const depts = army.querySelector(".bot-depts");
+    if (depts) reveal(all(".bot-dept", depts), depts, { y: 56, stagger: 0.09 });
+    all(".bot-chips", army).forEach((list) => reveal(all("li", list), list, { y: 10, duration: 0.5, stagger: 0.035 }));
+
+    const stats = army.querySelector(".bot-stats");
+    if (stats) {
+      reveal(all(".bot-stat", stats), stats, { y: 40, stagger: 0.1 });
+      all(".bot-stat > strong", stats).forEach((value) => {
+        const cleanup = countUp(value, stats);
+        if (cleanup) cleanups.push(cleanup);
+      });
+      const trigger = { trigger: stats, start: REVEAL_START, once: true };
+      gsap.from(all(".bot-bar i", stats), { scaleX: 0, transformOrigin: "left center", duration: 1.3, ease: EASE, stagger: 0.08, delay: 0.3, scrollTrigger: trigger });
+      gsap.from(all(".bot-dots i", stats), { scale: 0, autoAlpha: 0, duration: 0.35, ease: "back.out(2.4)", stagger: 0.022, delay: 0.3, scrollTrigger: trigger });
+    }
+  }
+
   // Section transitions: glass surfaces open up from an inset, rounded frame as they arrive.
   all(".sylva-section.glass-surface", main).forEach((surface) => {
     gsap.fromTo(surface,
