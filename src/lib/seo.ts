@@ -32,11 +32,12 @@ export const person = {
 export const preview = {
   title: "Nishant Jha | I turn messy problems into working systems",
   description: "AI adoption lead. 20+ AI bots live and 40+ people trained at CallHippo.",
-  imageAlt: "Nishant Jha: I turn messy problems into working systems",
+  imageAlt: "Nishant Jha. Messy problems in, working systems out.",
 };
 
 // A page that sets its own openGraph block replaces the site-wide one, image included, so each page adds this back.
-export const previewImage = { url: "/opengraph-image", width: 1200, height: 630, alt: preview.imageAlt };
+// Double the usual 1200×630 so the image stays sharp on high-density screens; src/app/opengraph-image.tsx draws it.
+export const previewImage = { url: "/opengraph-image", width: 2400, height: 1260, alt: preview.imageAlt };
 
 /** X/Twitter card for a page, so a pasted link shows that page's own title and text with the shared image. */
 export const twitterCard = (title: string, description: string) => ({ card: "summary_large_image" as const, title, description, images: [previewImage.url] });

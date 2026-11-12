@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { PageMotion } from "@/components/motion/PageMotion";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { jsonLd, person, personSchema, preview, siteUrl, twitterCard, websiteSchema } from "@/lib/seo";
+import { jsonLd, person, personSchema, preview, previewImage, siteUrl, twitterCard, websiteSchema } from "@/lib/seo";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import "./liquid-glass.css";
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: preview.description,
     siteName: "Nishant Jha",
     locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: preview.imageAlt }],
+    images: [previewImage],
   },
   twitter: twitterCard(preview.title, preview.description),
   robots: {
