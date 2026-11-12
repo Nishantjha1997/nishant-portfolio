@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: { absolute: "Nishant Jha | AI Adoption Lead & Builder in Ahmedabad" },
   description: person.metaDescription,
   alternates: { canonical: "/" },
-  openGraph: { url: "/" },
+  // Link-preview title and description come from the layout (`preview` in src/lib/seo.ts).
 };
 
 const impact = [

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactComposer } from "@/components/ContactComposer";
-import { breadcrumbs, jsonLd, person, personId, siteUrl, websiteId } from "@/lib/seo";
+import { breadcrumbs, jsonLd, person, personId, previewImage, siteUrl, twitterCard, websiteId } from "@/lib/seo";
+
+const share = {
+  title: "Contact Nishant Jha",
+  description: "Start a conversation about AI adoption, automation, analytics, or an end-to-end business build.",
+};
 
 export const metadata: Metadata = {
   title: { absolute: "Contact Nishant Jha | Ahmedabad, India" },
@@ -9,9 +14,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   openGraph: {
     url: "/contact",
-    title: "Contact Nishant Jha",
-    description: "Start a conversation about AI adoption, automation, analytics, or an end-to-end business build.",
+    ...share,
+    images: [previewImage],
   },
+  twitter: twitterCard(share.title, share.description),
 };
 
 const contactGraph = [

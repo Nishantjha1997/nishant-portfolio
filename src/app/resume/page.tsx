@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { breadcrumbs, jsonLd, personId, siteUrl, websiteId } from "@/lib/seo";
+import { breadcrumbs, jsonLd, personId, previewImage, siteUrl, twitterCard, websiteId } from "@/lib/seo";
+
+const share = {
+  title: "Nishant Jha Resume | AI Adoption Lead",
+  description: "Experience and selected work across AI adoption, automation, analytics, and operational delivery.",
+};
 
 export const metadata: Metadata = {
   title: { absolute: "Nishant Jha Resume | AI Adoption Lead, Ahmedabad" },
@@ -8,9 +13,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resume" },
   openGraph: {
     url: "/resume",
-    title: "Nishant Jha Resume | AI Adoption Lead, Ahmedabad",
-    description: "Experience and selected work across AI adoption, automation, analytics, and operational delivery.",
+    ...share,
+    images: [previewImage],
   },
+  twitter: twitterCard(share.title, share.description),
 };
 
 const experience = [
