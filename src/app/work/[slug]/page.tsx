@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projectBySlug, projects } from "@/data/projects";
-import { breadcrumbs, jsonLd, personId, siteUrl, websiteId } from "@/lib/seo";
+import { breadcrumbs, jsonLd, personId, previewImage, siteUrl, twitterCard, websiteId } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -22,7 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: project.summary,
     alternates: { canonical },
     authors: [{ name: "Nishant Jha", url: `${siteUrl}/about` }],
-    openGraph: { type: "article", title: `${title} | Nishant Jha`, description: project.summary, url: canonical, authors: [`${siteUrl}/about`], ...(project.updatedAt ? { modifiedTime: project.updatedAt } : {}) },
+    twitter: twitterCard(`${title} | Nishant Jha`, project.summary),
+    openGraph: { type: "article", title: `${title} | Nishant Jha`, description: project.summary, url: canonical, images: [previewImage], authors: [`${siteUrl}/about`], ...(project.updatedAt ? { modifiedTime: project.updatedAt } : {}) },
   };
 }
 

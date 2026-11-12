@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SpeechLab } from "@/components/SpeechLab";
+import { previewImage, twitterCard } from "@/lib/seo";
+
+const share = {
+  title: "AI Text-to-Speech Lab by Nishant Jha",
+  description: "A privacy-friendly browser speech lab with local voices and adjustable playback controls.",
+};
 
 export const metadata: Metadata = {
   title: "AI Text-to-Speech Lab",
@@ -8,9 +14,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/labs/ai-tts" },
   openGraph: {
     url: "/labs/ai-tts",
-    title: "AI Text-to-Speech Lab by Nishant Jha",
-    description: "A privacy-friendly browser speech lab with local voices and adjustable playback controls.",
+    ...share,
+    images: [previewImage],
   },
+  twitter: twitterCard(share.title, share.description),
 };
 
 export default function AiTtsPage() {

@@ -25,6 +25,22 @@ export const person = {
     "Nishant Jha is an AI adoption lead and forward-deployed builder in Ahmedabad, India. He works in the Founder's Office at CallHippo, where he rolled out AI agent teams across the company (20+ bots live, 40+ people trained, 80+ shared automations) and builds internal systems for sales, finance, and operations.",
 };
 
+/*
+ * Link-preview text: what shows when the site is pasted into LinkedIn, WhatsApp, Slack or X.
+ * Kept separate from the search title in each page's metadata, so one can change without the other.
+ */
+export const preview = {
+  title: "Nishant Jha | I turn messy problems into working systems",
+  description: "AI adoption lead. 20+ AI bots live and 40+ people trained at CallHippo.",
+  imageAlt: "Nishant Jha: I turn messy problems into working systems",
+};
+
+// A page that sets its own openGraph block replaces the site-wide one, image included, so each page adds this back.
+export const previewImage = { url: "/opengraph-image", width: 1200, height: 630, alt: preview.imageAlt };
+
+/** X/Twitter card for a page, so a pasted link shows that page's own title and text with the shared image. */
+export const twitterCard = (title: string, description: string) => ({ card: "summary_large_image" as const, title, description, images: [previewImage.url] });
+
 export const personId = `${siteUrl}/#person`;
 export const websiteId = `${siteUrl}/#website`;
 

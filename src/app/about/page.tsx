@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { breadcrumbs, jsonLd, person, personId, siteUrl, websiteId } from "@/lib/seo";
+import { breadcrumbs, jsonLd, person, personId, previewImage, siteUrl, twitterCard, websiteId } from "@/lib/seo";
+
+const share = {
+  title: "About Nishant Jha | AI Adoption Lead",
+  description: "Background, work, and skills of Nishant Jha, AI adoption lead and forward-deployed builder.",
+};
 
 export const metadata: Metadata = {
   title: { absolute: "About Nishant Jha | AI Adoption Lead, Ahmedabad" },
@@ -9,11 +14,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: "/about",
-    title: "About Nishant Jha | AI Adoption Lead, Ahmedabad",
-    description: "Background, work, and skills of Nishant Jha, AI adoption lead and forward-deployed builder in Ahmedabad.",
+    ...share,
     firstName: "Nishant",
     lastName: "Jha",
+    images: [previewImage],
   },
+  twitter: twitterCard(share.title, share.description),
 };
 
 const timeline = [

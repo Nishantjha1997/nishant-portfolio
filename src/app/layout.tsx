@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { PageMotion } from "@/components/motion/PageMotion";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { jsonLd, person, personSchema, siteUrl, websiteSchema } from "@/lib/seo";
+import { jsonLd, person, personSchema, preview, siteUrl, twitterCard, websiteSchema } from "@/lib/seo";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import "./liquid-glass.css";
@@ -31,18 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Nishant Jha | AI Adoption Lead in Ahmedabad",
-    description: "Nishant Jha rolled out AI agent teams across CallHippo: 20+ bots live, 40+ people trained. Case studies in AI adoption, automation, and internal systems.",
+    title: preview.title,
+    description: preview.description,
     siteName: "Nishant Jha",
     locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha, AI adoption lead and forward-deployed builder in Ahmedabad" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: preview.imageAlt }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Nishant Jha | AI Adoption Lead in Ahmedabad",
-    description: "AI agent teams, automation, and internal systems built by Nishant Jha in Ahmedabad.",
-    images: ["/opengraph-image"],
-  },
+  twitter: twitterCard(preview.title, preview.description),
   robots: {
     index: true,
     follow: true,
