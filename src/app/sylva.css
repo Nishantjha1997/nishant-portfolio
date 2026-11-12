@@ -359,3 +359,31 @@ html.motion-pending main, html.motion-pending .site-header > * { opacity: 0; ani
   .bot-stats .bot-stat:last-child { grid-column: auto; }
   .bot-dept h3 { margin-top: 16px; }
 }
+
+/* About page */
+.sylva-prose a + a { margin-left: 22px; }
+.about-prose { max-width: 680px; color: rgba(241,244,236,.72); font-size: 15px; line-height: 1.8; }
+.about-prose p + p { margin-top: 18px; }
+.about-prose a, .about-faq a { border-bottom: 1px solid var(--acid); }
+.about-page .experience-list + .about-prose { margin-top: 34px; font-size: 13px; }
+.about-faq { display: grid; gap: 0; border-top: 1px solid rgba(244,247,239,.14); }
+.about-faq > div { padding: 24px 0; border-bottom: 1px solid rgba(244,247,239,.14); }
+.about-faq h3 { margin: 0 0 10px; font-size: 19px; font-weight: 400; letter-spacing: -.03em; }
+.about-faq p { max-width: 720px; margin: 0; color: rgba(241,244,236,.66); font-size: 14px; line-height: 1.75; }
+.about-page .contact-links { flex-wrap: wrap; margin-top: 0; }
+
+/* Case-study byline and related links */
+.detail-byline { margin: 14px 0 0; color: rgba(241,244,236,.6); font-size: 12px; }
+.detail-byline a { color: #f2f5ed; border-bottom: 1px solid var(--acid); }
+.detail-related { margin-top: 90px; padding-top: 30px; border-top: 1px solid rgba(244,247,239,.14); }
+.detail-related > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.detail-related a { display: flex; flex-direction: column; gap: 8px; padding: 20px; border: 1px solid rgba(244,247,239,.12); border-radius: 20px; background: rgba(244,247,239,.04); transition: border-color .2s ease, transform .2s ease; }
+.detail-related a:hover { transform: translateY(-3px); border-color: rgba(217,255,84,.5); }
+.detail-related span { color: var(--acid); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.detail-related strong { font-size: 18px; font-weight: 400; letter-spacing: -.03em; }
+.detail-related small { color: rgba(241,244,236,.6); font-size: 12px; line-height: 1.55; }
+@media (max-width: 760px) { .detail-related > div { grid-template-columns: 1fr; } .detail-related { margin-top: 60px; } }
+
+/* Count-up numbers: the real value stays in the DOM (hidden only while counting); the running number is drawn here. */
+[data-count] { position: relative; visibility: hidden; }
+[data-count]::before { position: absolute; top: 0; left: 0; visibility: visible; content: attr(data-count); white-space: nowrap; }
