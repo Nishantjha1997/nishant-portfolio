@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { PageMotion } from "@/components/motion/PageMotion";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { jsonLd, person, personSchema, siteUrl, websiteSchema } from "@/lib/seo";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import "./liquid-glass.css";
@@ -12,15 +13,14 @@ import "./sylva.css";
 // and a CSS failsafe in sylva.css reveals the page if the motion bundle never loads.
 const motionGuard = `if(window.matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("motion-pending")`;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nishant Jha | Forward-Deployed Builder",
+    default: "Nishant Jha | AI Adoption Lead in Ahmedabad",
     template: "%s | Nishant Jha",
   },
-  description: "Nishant Jha is a forward-deployed builder in Ahmedabad working across AI adoption, automation, business intelligence, analytics, and operations.",
+  description: person.metaDescription,
+  keywords: ["Nishant Jha", "Nishant Jha Ahmedabad", "Nishant Jha CallHippo", "Nishant Jha portfolio", "AI adoption lead", "forward-deployed builder", "AI agents", "automation", "Founder's Office"],
   applicationName: "Nishant Jha Portfolio",
   authors: [{ name: "Nishant Jha", url: siteUrl }],
   creator: "Nishant Jha",
@@ -31,16 +31,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Nishant Jha | Forward-Deployed Builder",
-    description: "End-to-end AI adoption, automation, analytics, and operations case studies by Nishant Jha.",
+    title: "Nishant Jha | AI Adoption Lead in Ahmedabad",
+    description: "Nishant Jha rolled out AI agent teams across CallHippo: 20+ bots live, 40+ people trained. Case studies in AI adoption, automation, and internal systems.",
     siteName: "Nishant Jha",
     locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha - forward-deployed builder portfolio" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nishant Jha, AI adoption lead and forward-deployed builder in Ahmedabad" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nishant Jha | Forward-Deployed Builder",
-    description: "Explore Nishant Jha's AI adoption, automation, analytics, and business systems work.",
+    title: "Nishant Jha | AI Adoption Lead in Ahmedabad",
+    description: "AI agent teams, automation, and internal systems built by Nishant Jha in Ahmedabad.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -63,17 +63,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: motionGuard }} />
       </head>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([websiteSchema, personSchema])} />
         <SmoothScroll />
         <PageMotion />
         <SiteHeader />
         <main>{children}</main>
         <Analytics />
         <footer className="site-footer">
-          <span>© {new Date().getFullYear()} Nishant Jha</span>
+          <span>© {new Date().getFullYear()} Nishant Jha · Ahmedabad, India</span>
           <nav aria-label="Footer navigation">
+            <a href="/about">About Nishant Jha</a>
             <a href="/resume">Nishant Jha Resume</a>
-            <a href="https://www.linkedin.com/in/nishant-jha-059828104/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/Nishantjha1997" target="_blank" rel="noreferrer">GitHub</a>
+            <a href={person.linkedin} target="_blank" rel="noreferrer me">LinkedIn</a>
+            <a href={person.github} target="_blank" rel="noreferrer me">GitHub</a>
           </nav>
         </footer>
       </body>

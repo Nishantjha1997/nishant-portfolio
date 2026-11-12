@@ -12,6 +12,8 @@ Public portfolio for Nishant Jha — Executive, Founder's Office at CallHippo, f
 - Privacy-safe contact composer that opens a prefilled email draft without storing form contents.
 - Resume route and download with `X-Robots-Tag: noindex, noarchive`.
 - GSAP (ScrollTrigger, SplitText) motion with Lenis smooth scrolling, defined per route in `src/components/motion/`. Reduced-motion visitors get native scrolling and fully static content.
+- Search and AI visibility: one identity source in `src/lib/seo.ts` feeds every page's metadata and JSON-LD (Person, WebSite, ProfilePage, Article, FAQPage, BreadcrumbList). `/about` answers "who is Nishant Jha" with an FAQ. `/llms.txt` and `/llms-full.txt` give AI assistants a plain-Markdown version of the site, generated from the same data as the pages. `robots.txt` explicitly welcomes search and AI crawlers.
+- After a deploy, `node scripts/indexnow.mjs` tells IndexNow search engines (Bing and others) which pages changed. The key file lives in `public/`.
 - Responsive dark-first design with keyboard navigation, reduced-motion support, structured metadata, sitemap, robots rules, and project-specific case-study pages.
 
 ## Privacy and publication boundary

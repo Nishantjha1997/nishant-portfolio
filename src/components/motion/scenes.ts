@@ -79,28 +79,29 @@ function intro(elements: Element[], delay = 0.15) {
   return tl;
 }
 
-/** Animates "95%" → counts from 0; restores the original text on revert. */
+/**
+ * Animates "95%" → counts from 0. The element's real text is never changed, so crawlers, AI
+ * assistants and screen readers always read the true value; the running number is drawn from a
+ * data attribute by CSS ([data-count] in sylva.css) and removed when the count finishes.
+ */
 function countUp(element: HTMLElement, trigger: Element) {
-  const original = element.textContent ?? "";
-  const match = original.match(/^(\d+)(\D*)$/);
+  const match = (element.textContent ?? "").match(/^(\d+)(\D*)$/);
   if (!match) return undefined;
   const target = Number(match[1]);
   const suffix = match[2];
   const counter = { value: 0 };
+  const show = () => element.setAttribute("data-count", `${Math.round(counter.value)}${suffix}`);
+  const finish = () => element.removeAttribute("data-count");
   gsap.to(counter, {
     value: target,
     duration: 1.6,
     ease: "power2.out",
     scrollTrigger: { trigger, start: REVEAL_START, once: true },
-    onStart: () => element.setAttribute("aria-label", original),
-    onUpdate: () => { element.textContent = `${Math.round(counter.value)}${suffix}`; },
-    onComplete: () => element.removeAttribute("aria-label"),
+    onUpdate: show,
+    onComplete: finish,
   });
-  element.textContent = `0${suffix}`;
-  return () => {
-    element.textContent = original;
-    element.removeAttribute("aria-label");
-  };
+  show();
+  return finish;
 }
 
 function homeScene(main: HTMLElement, mm: MotionMedia) {

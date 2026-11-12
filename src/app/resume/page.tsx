@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
+import { breadcrumbs, jsonLd, personId, siteUrl, websiteId } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nishant Jha Resume | AI Adoption Lead & Forward-Deployed Builder" },
+  title: { absolute: "Nishant Jha Resume | AI Adoption Lead, Ahmedabad" },
   description: "Nishant Jha's resume: end-to-end AI adoption, automation, business intelligence, process improvement, and Founder's Office work in Ahmedabad.",
   alternates: { canonical: "/resume" },
   openGraph: {
     url: "/resume",
-    title: "Nishant Jha Resume | AI Adoption Lead & Forward-Deployed Builder",
+    title: "Nishant Jha Resume | AI Adoption Lead, Ahmedabad",
     description: "Experience and selected work across AI adoption, automation, analytics, and operational delivery.",
   },
 };
@@ -84,21 +83,25 @@ const credentials = [
 ];
 
 export default function ResumePage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${siteUrl}/resume#webpage`,
-    url: `${siteUrl}/resume`,
-    name: "Nishant Jha Resume",
-    description: "Professional resume of Nishant Jha, covering Founder's Office work, executive operations, AI automation, skills, projects, and credentials.",
-    about: { "@id": `${siteUrl}/#person` },
-    isPartOf: { "@id": `${siteUrl}/#website` },
-    inLanguage: "en-IN",
-  };
+  const graph = [
+    {
+      "@type": "ProfilePage",
+      "@id": `${siteUrl}/resume#webpage`,
+      url: `${siteUrl}/resume`,
+      name: "Nishant Jha Resume",
+      description: "Professional resume of Nishant Jha, covering AI adoption, Founder's Office work, automation, skills, projects, and credentials.",
+      mainEntity: { "@id": personId },
+      about: { "@id": personId },
+      isPartOf: { "@id": websiteId },
+      dateModified: "2026-11-12",
+      inLanguage: "en-IN",
+    },
+    breadcrumbs([{ name: "Resume", path: "/resume" }]),
+  ];
 
   return (
     <article className="page-shell simple-page resume-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(graph)} />
       <Link className="back-link" href="/">← Back home</Link>
       <p className="eyebrow">NISHANT JHA / RESUME</p>
       <h1>Nishant Jha <em>Resume.</em></h1>

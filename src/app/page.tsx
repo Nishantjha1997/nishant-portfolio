@@ -6,12 +6,12 @@ import { BotArmy } from "@/components/BotArmy";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SylvaPortfolio } from "@/components/SylvaPortfolio";
 import { projectBySlug, projects } from "@/data/projects";
+import { jsonLd, person, personId, siteUrl, websiteId } from "@/lib/seo";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishant.top";
 
 export const metadata: Metadata = {
-  title: "Nishant Jha in Ahmedabad | AI Adoption Lead & Forward-Deployed Builder",
-  description: "Nishant Jha leads AI adoption and builds internal systems in Ahmedabad: 20+ AI bots live across departments, 40+ people trained, plus automation, business intelligence, and process improvement work.",
+  title: { absolute: "Nishant Jha | AI Adoption Lead & Builder in Ahmedabad" },
+  description: person.metaDescription,
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
@@ -54,17 +54,21 @@ const credentials = [
 ];
 
 export default function HomePage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Nishant Jha", inLanguage: "en-IN" },
-      { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Nishant Jha", alternateName: "Nishant", url: siteUrl, image: `${siteUrl}/images/nishant-jha-profile.jpg`, email: "nishant@nishant.top", jobTitle: "Executive, Founder's Office", homeLocation: { "@type": "Place", name: "Ahmedabad, Gujarat, India" }, sameAs: ["https://www.linkedin.com/in/nishant-jha-059828104/", "https://github.com/Nishantjha1997"] },
-    ],
+  const profilePage = {
+    "@type": "ProfilePage",
+    "@id": `${siteUrl}/#profilepage`,
+    url: siteUrl,
+    name: "Nishant Jha | AI Adoption Lead in Ahmedabad",
+    isPartOf: { "@id": websiteId },
+    mainEntity: { "@id": personId },
+    about: { "@id": personId },
+    dateModified: "2026-11-12",
+    inLanguage: "en-IN",
   };
 
   return (
     <div className="sylva-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([profilePage])} />
       <SylvaPortfolio />
 
       <section className="sylva-hero page-shell" id="home">
@@ -81,7 +85,7 @@ export default function HomePage() {
 
         <div className="sylva-hero-cards" aria-label="Nishant Jha profile and impact">
           <article className="profile-specimen sylva-float-card">
-            <div className="profile-photo-wrap"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha" fill priority sizes="(max-width: 720px) 72vw, 340px" /></div>
+            <div className="profile-photo-wrap"><Image src="/images/nishant-jha-profile.jpg" alt="Nishant Jha, AI adoption lead and forward-deployed builder in Ahmedabad" fill priority sizes="(max-width: 720px) 72vw, 340px" /></div>
             <p>Profile / 01</p>
             <h2>Find it.<br />Build it.<br />Make it useful.</h2>
             <Link href="#about" aria-label="Read about Nishant Jha">↘</Link>
@@ -103,7 +107,7 @@ export default function HomePage() {
       <section className="sylva-section sylva-surface glass-surface" id="about">
         <div className="page-shell sylva-about-grid">
           <div><p className="sylva-index">01 / ABOUT</p><h2>Close to the problem.<br /><em>Close to the build.</em></h2></div>
-          <div className="sylva-prose"><p>I&apos;m a Founder&apos;s Office operator with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>Lately that means bot armies: I trained 40+ colleagues to run their own agent teams and published shared bots for each department, each with a human check built in.</p><p>I use Claude Code and Codex to build quickly, while owning the requirements, architecture, integrations, and pre-deployment checks. I stay close to adoption, exceptions, ownership, and handover so the result works in daily use.</p><Link href="/resume">Read the full résumé <span>↗</span></Link></div>
+          <div className="sylva-prose"><p>I&apos;m Nishant Jha, a Founder&apos;s Office operator in Ahmedabad with a builder&apos;s instinct. I get into the workflow, talk to the people doing the work, trace the data, and turn an unclear request into something a team can use.</p><p>Lately that means bot armies: I trained 40+ colleagues to run their own agent teams and published shared bots for each department, each with a human check built in.</p><p>I use Claude Code and Codex to build quickly, while owning the requirements, architecture, integrations, and pre-deployment checks. I stay close to adoption, exceptions, ownership, and handover so the result works in daily use.</p><Link href="/about">More about Nishant Jha <span>↗</span></Link> <Link href="/resume">Read the full résumé <span>↗</span></Link></div>
         </div>
       </section>
 
@@ -138,7 +142,7 @@ export default function HomePage() {
         <p className="sylva-index">06 / NEXT FIELD NOTE</p>
         <h2>Need someone who can<br /><em>find it and build it?</em></h2>
         <p>I&apos;m interested in roles where business context, practical engineering, and fast learning meet. Tell me what needs to change.</p>
-        <div className="sylva-actions"><Link className="sylva-button sylva-button-light glass-button" href="/contact">Start a conversation <span>↗</span></Link><a className="sylva-button sylva-button-ghost glass-button" href="https://www.linkedin.com/in/nishant-jha-059828104/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div>
+        <div className="sylva-actions"><Link className="sylva-button sylva-button-light glass-button" href="/contact">Start a conversation <span>↗</span></Link><a className="sylva-button sylva-button-ghost glass-button" href={person.linkedin} target="_blank" rel="noreferrer me">LinkedIn <span>↗</span></a></div>
       </section>
     </div>
   );
